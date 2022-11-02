@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="energy_refresh_period_in_ms">2000</integer>
+
+</resources>

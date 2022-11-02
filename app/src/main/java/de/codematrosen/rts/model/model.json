@@ -1,0 +1,1069 @@
+{
+    "BAT1": {
+        "CEI_LIMIT": "u1_0000",
+        "DRM0_ASSERT": "u8_00",
+        "ISLAND_ENABLE": "u8_00",
+        "NSP2_FW": "u1_0006",
+        "NSP_FW": "u1_000A",
+        "RESET": "u8_00",
+        "SELFTEST_ACT": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "SELFTEST_LIMIT": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "SELFTEST_OFF": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "SELFTEST_OVERALL_STATE": "u8_05",
+        "SELFTEST_STATE": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "SELFTEST_STEP": [
+            "st_",
+            "st_",
+            "st_",
+            "st_",
+            "st_",
+            "st_",
+            "st_",
+            "st_"
+        ],
+        "SELFTEST_TIME": [
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000"
+        ],
+        "SERIAL": "st_767272HF008605630018",
+        "SPARE_CAPACITY": "u8_00",
+        "TRIG_ITALY_SELF": "u8_00",
+        "TYPE": "u8_04"
+    },
+    "BMS": {
+        "ALARM_STATUS": [
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000"
+        ],
+        "BATTERY_STATUS": [
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000"
+        ],
+        "BL": [
+            "u1_30C0",
+            "u1_30C0",
+            "u1_0000",
+            "u1_0000"
+        ],
+        "BMS_READY_FLAG": "u8_01",
+        "BMS_STATUS": "u8_01",
+        "BMS_STATUS_TIMESTAMP": "i3_633538B0",
+        "CELL_BALANCE_STATUS": [
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000"
+        ],
+        "CELL_TEMPERATURES_MODULE_A": [
+            "i8_1F",
+            "i8_20",
+            "i8_20",
+            "i8_20",
+            "i8_21",
+            "i8_20"
+        ],
+        "CELL_TEMPERATURES_MODULE_B": [
+            "i8_1F",
+            "i8_1F",
+            "i8_20",
+            "i8_20",
+            "i8_21",
+            "i8_20"
+        ],
+        "CELL_TEMPERATURES_MODULE_C": [
+            "i8_00",
+            "i8_00",
+            "i8_00",
+            "i8_00",
+            "i8_00",
+            "i8_00"
+        ],
+        "CELL_TEMPERATURES_MODULE_D": [
+            "i8_00",
+            "i8_00",
+            "i8_00",
+            "i8_00",
+            "i8_00",
+            "i8_00"
+        ],
+        "CELL_VOLTAGES_MODULE_A": [
+            "u1_0EB7",
+            "u1_0EB6",
+            "u1_0EB7",
+            "u1_0EB7",
+            "u1_0EB6",
+            "u1_0EB8",
+            "u1_0EB8",
+            "u1_0EAE",
+            "u1_0EB1",
+            "u1_0EAF",
+            "u1_0EB1",
+            "u1_0EAF",
+            "u1_0EB1",
+            "u1_0EB1"
+        ],
+        "CELL_VOLTAGES_MODULE_B": [
+            "u1_0EB5",
+            "u1_0EB4",
+            "u1_0EB4",
+            "u1_0EB4",
+            "u1_0EB4",
+            "u1_0EB5",
+            "u1_0EB3",
+            "u1_0EAF",
+            "u1_0EB5",
+            "u1_0EB6",
+            "u1_0EB4",
+            "u1_0EB5",
+            "u1_0EB1",
+            "u1_0EB5"
+        ],
+        "CELL_VOLTAGES_MODULE_C": [
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000"
+        ],
+        "CELL_VOLTAGES_MODULE_D": [
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000"
+        ],
+        "CHARGED_ENERGY": [
+            "u3_08C8ABBD",
+            "u3_08D48622",
+            "u3_00000000",
+            "u3_00000000"
+        ],
+        "CHARGE_CURRENT_LIMIT": [
+            "fl_41400000",
+            "fl_41400000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "COMMERRCOUNT": "u1_0000",
+        "CURRENT": [
+            "fl_3F547AE1",
+            "fl_3F266666",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "CYCLES": [
+            "u1_0010",
+            "u1_0010",
+            "u1_0000",
+            "u1_0000"
+        ],
+        "DERATING": "u8_00",
+        "DISCHARGED_ENERGY": [
+            "u3_085CF1BA",
+            "u3_086ABA76",
+            "u3_00000000",
+            "u3_00000000"
+        ],
+        "DISCHARGE_CURRENT_LIMIT": [
+            "fl_C1C00000",
+            "fl_C1C00000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "ERROR": "u8_00",
+        "FAULTLINECOUNT": "u1_0002",
+        "FW": [
+            "u1_75B6",
+            "u1_75B6",
+            "u1_0000",
+            "u1_0000"
+        ],
+        "HW_EXTENSION": [
+            "u1_0064",
+            "u1_0064",
+            "u1_0000",
+            "u1_0000"
+        ],
+        "HW_MAINBOARD": [
+            "u1_0C1D",
+            "u1_0C1D",
+            "u1_0000",
+            "u1_0000"
+        ],
+        "MANUFACTURER": "u8_02",
+        "MAX_CELL_VOLTAGE": [
+            "u1_0EB8",
+            "u1_0EB6",
+            "u1_0000",
+            "u1_0000"
+        ],
+        "MAX_TEMP": "i1_014A",
+        "MIN_CELL_VOLTAGE": [
+            "u1_0EAF",
+            "u1_0EB0",
+            "u1_0000",
+            "u1_0000"
+        ],
+        "MIN_TEMP": "i1_0136",
+        "MODULES_CONFIGURED": "u8_02",
+        "MODULE_COUNT": "u8_02",
+        "NOM_CHARGEPOWER_MODULE": "fl_441C4000",
+        "NOM_DISCHARGEPOWER_MODULE": "fl_449C4000",
+        "NR_INSTALLED": "u8_02",
+        "PROTOCOL": "u1_0000",
+        "RECOVERLOCKED": "u8_00",
+        "SERIAL": [
+            "st_",
+            "st_",
+            "st_",
+            "st_"
+        ],
+        "SN": [
+            "u3_029FB0FD",
+            "u3_029FB0FF",
+            "u3_00000000",
+            "u3_00000000"
+        ],
+        "SOC": [
+            "u1_003E",
+            "u1_003F",
+            "u1_0000",
+            "u1_0000"
+        ],
+        "SOH": [
+            "u8_63",
+            "u8_63",
+            "u8_00",
+            "u8_00"
+        ],
+        "STATUS": [
+            "u3_00000001",
+            "u3_00000001",
+            "u3_00000000",
+            "u3_00000000"
+        ],
+        "SYSTEM_SOC": "u1_026C",
+        "TEMP_MAX": [
+            "i8_21",
+            "i8_21",
+            "i8_00",
+            "i8_00"
+        ],
+        "TEMP_MIN": [
+            "i8_1F",
+            "i8_1F",
+            "i8_00",
+            "i8_00"
+        ],
+        "TF_ERROR": "u8_00",
+        "VOLTAGE": [
+            "fl_4252C189",
+            "fl_4252C6A8",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "WIZARD_ABORT": "u8_01",
+        "WIZARD_CONFIRM": "u8_00",
+        "WIZARD_DCCONNECT": "u1_0000",
+        "WIZARD_START": "u8_00",
+        "WIZARD_STATE": "u8_00"
+    },
+    "ENERGY": {
+        "CAPTESTMODULE": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "GUI_BAT_DATA_COLLECTED": "u8_01",
+        "GUI_BAT_DATA_CURRENT": "fl_3FBD70A4",
+        "GUI_BAT_DATA_FUEL_CHARGE": "fl_426E4C41",
+        "GUI_BAT_DATA_MAX_CELL_VOLTAGE": "u1_0EB8",
+        "GUI_BAT_DATA_MIN_CELL_VOLTAGE": "u1_0EAE",
+        "GUI_BAT_DATA_POWER": "fl_429BF748",
+        "GUI_BAT_DATA_VOLTAGE": "fl_4252C396",
+        "GUI_BOOSTING_INFO": "u8_00",
+        "GUI_CAP_TEST_STATE": "u8_00",
+        "GUI_CHARGING_INFO": "u8_01",
+        "GUI_GRID_POW": "fl_C18BC28F",
+        "GUI_HOUSE_POW": "fl_4542834D",
+        "GUI_INIT_CHARGE_START": "u8_00",
+        "GUI_INIT_CHARGE_STOP": "u8_00",
+        "GUI_INVERTER_POWER": "fl_4547B9A2",
+        "GUI_TEST_CHARGE_STAT": "u8_00",
+        "GUI_TEST_DISCHARGE_STAT": "u8_00",
+        "INIT_CHARGE_ACK": "u8_00",
+        "INIT_CHARGE_DIFF_VOLTAGE": "fl_00000000",
+        "INIT_CHARGE_MAX_CURRENT": "fl_00000000",
+        "INIT_CHARGE_MAX_VOLTAGE": "fl_00000000",
+        "INIT_CHARGE_MIN_VOLTAGE": "fl_00000000",
+        "INIT_CHARGE_RERUN": "u8_00",
+        "INIT_CHARGE_RUNNING": "u8_00",
+        "INIT_CHARGE_STATE": "u8_00",
+        "INIT_CHARGE_TIMER": "u6_0000000000000000",
+        "INIT_DISCHARGE_MAX_CURRENT": "fl_00000000",
+        "LI_STORAGE_MODE_RUNNING": "u8_00",
+        "LI_STORAGE_MODE_START": "u8_00",
+        "LI_STORAGE_MODE_STOP": "u8_00",
+        "OFFPEAK_DURATION": "u1_0000",
+        "OFFPEAK_POWER": "fl_00000000",
+        "OFFPEAK_RUNNING": "u8_00",
+        "OFFPEAK_TARGET": "u8_64",
+        "SAFE_CHARGE_FORCE": "u8_00",
+        "SAFE_CHARGE_PROHIBIT": "u8_00",
+        "SAFE_CHARGE_RUNNING": "u8_00",
+        "STAT_HOURS_OF_OPERATION": "u3_00000809",
+        "STAT_LIMITED_NET_SKEW": "u8_00",
+        "STAT_STATE": "u8_0E",
+        "ZERO_EXPORT": "u8_00"
+    },
+    "FEATURES": {
+        "CAR": "u8_01",
+        "CLOUDREADY": "u8_01",
+        "ECOGRIDREADY": "u8_01",
+        "HEAT": "u8_01",
+        "ISLAND": "u8_00",
+        "ISLAND_PRO": "u8_00",
+        "PEAKSHAVING": "u8_01",
+        "SGREADY": "u8_00",
+        "SHKW": "u8_00",
+        "SOCKETS": "u8_00"
+    },
+    "GRIDCONFIG": {
+        "AU_FIXED_FAC": "fl_3F800000",
+        "AU_GRID_CODE": "u1_0004",
+        "AU_P_RAMP_CH": "fl_418547AE",
+        "AU_P_RAMP_DI": "fl_418547AE",
+        "AU_RESP_MODE": "u1_000F",
+        "AU_SOFT_RAMP_EN": "u8_01",
+        "AU_TARGET_TY": "u1_0000",
+        "AU_VRR_MAX": [
+            "u1_00CF",
+            "u1_00E6",
+            "u1_00FF",
+            "u1_0109"
+        ],
+        "AU_VRR_MIN": [
+            "u1_00CF",
+            "u1_00D8",
+            "u1_00EB",
+            "u1_00F4"
+        ],
+        "AU_VVAR_PERCENTAGE": [
+            "i8_1E",
+            "i8_00",
+            "i8_00",
+            "i8_E2"
+        ],
+        "AU_VVAR_P_MAX": [
+            "i8_3C",
+            "i8_00",
+            "i8_00",
+            "i8_00"
+        ],
+        "AU_VVAR_P_MIN": [
+            "i8_00",
+            "i8_00",
+            "i8_00",
+            "i8_C4"
+        ],
+        "AU_VVAR_VOLTAGE": [
+            "u1_00CF",
+            "u1_00DC",
+            "u1_00FA",
+            "u1_0109"
+        ],
+        "AU_VWC_VOLTAGE": [
+            "u1_00CF",
+            "u1_00DC",
+            "u1_00FA",
+            "u1_0109"
+        ],
+        "AU_VWD_VOLTAGE": [
+            "u1_00CF",
+            "u1_00DC",
+            "u1_00FA",
+            "u1_0109"
+        ],
+        "CEI_COS_PHI": "fl_3F800000",
+        "CEI_COS_PHI_ENABLE": "u1_0000",
+        "CEI_CPHI_LOIN": "u1_0069",
+        "CEI_CPHI_LOUT": "u1_0064",
+        "CEI_FREQ_MAX": "u1_C3B4",
+        "CEI_FREQ_MIN": "u1_C2EC",
+        "CEI_REC_TIME": "u1_012C",
+        "CEI_RED_DROP": "u1_0018",
+        "CEI_SEGNALE_ESTERNO": "u8_00",
+        "CEI_STAB_AC_DE": "u1_0000",
+        "CEI_STAB_LO_CO": "u1_B98C",
+        "CEI_STAB_LO_TH": "u1_C288",
+        "CEI_STAB_UP_CO": "u1_C92C",
+        "CEI_STAB_UP_TH": "u1_C418",
+        "CEI_STAB_VOL_TH": "u1_006E",
+        "PWRCFG_COS_POINT1": "fl_3F800000",
+        "PWRCFG_COS_POINT3": "fl_3F733333",
+        "PWRCFG_COS_POINT_2A": "fl_3F800000",
+        "PWRCFG_COS_POINT_2B": "fl_42480000",
+        "PWRCFG_USE_MAX_PWR_SKEW": "u8_01",
+        "VDECOSPHITIME": "u1_000A",
+        "VDEFIXEDFAC": "fl_3F800000",
+        "VDEOVERFREQDROOP": "u1_0005",
+        "VDEOVERFREQLIMIT": "fl_4248CCCC",
+        "VDERECOVERTIME": "u1_000A",
+        "VDETARGETTY": "u1_0004",
+        "VDEUNDERFREQDROOP": "u1_0002",
+        "VDE_FREQDROPPROT": "fl_423E0000",
+        "VDE_FREQDROPPROTDELAY": "fl_3DCCCCCD",
+        "VDE_FREQRISEPROT": "fl_424E0000",
+        "VDE_FREQRISEPROTDELAY": "fl_3DCCCCCD",
+        "VDE_UNDERFREQLIMIT": "fl_42473333",
+        "VDE_VOLTDROPPROT": "fl_42340000",
+        "VDE_VOLTDROPPROTAVG": "fl_42A00000",
+        "VDE_VOLTDROPPROTAVGDELAY": "fl_40400000",
+        "VDE_VOLTDROPPROTDELAY": "fl_3E99999A",
+        "VDE_VOLTRISEPROT": "fl_42FA0000",
+        "VDE_VOLTRISEPROTAVG": "fl_42DC0000",
+        "VDE_VOLTRISEPROTAVGDELAY": "fl_3DCCCCCD",
+        "VDE_VOLTRISEPROTDELAY": "fl_3DCCCCCD"
+    },
+    "IPU": {
+        "VERSION": "u8_02"
+    },
+    "LOG": {
+        "LOG_IN_BUTT": "u8_00",
+        "LOG_OUT_BUTT": "u8_00",
+        "PASSWORD": "st_",
+        "USERNAME": "st_",
+        "USER_LEVEL": "u8_00"
+    },
+    "PM1OBJ1": {
+        "ADR": "u8_01",
+        "ENABLED": "u8_01",
+        "FREQ": "fl_4247F5C2",
+        "I_AC": [
+            "fl_40A7AE14",
+            "fl_40AEB852",
+            "fl_3E8F5C29"
+        ],
+        "P_AC": [
+            "fl_4499AC7B",
+            "fl_C4A12B85",
+            "fl_422A0000"
+        ],
+        "P_TOTAL": "fl_C18BC28F",
+        "U_AC": [
+            "fl_436AB333",
+            "fl_436D0000",
+            "fl_436B6667"
+        ]
+    },
+    "PM1OBJ2": {
+        "ADR": "u8_02",
+        "ENABLED": "u8_00",
+        "FREQ": "fl_00000000",
+        "I_AC": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "P_AC": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "P_TOTAL": "fl_00000000",
+        "U_AC": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ]
+    },
+    "PV1": {
+        "ERROR_STATE_INT": [
+            "u3_00000000",
+            "u3_00000000"
+        ],
+        "INTERNAL_INV_ERROR_TEXT": [
+            "st_",
+            "st_"
+        ],
+        "INTERNAL_INV_ERR_STATE_VALID": [
+            "u8_01",
+            "u8_01"
+        ],
+        "INTERNAL_INV_STATE": [
+            "u8_02",
+            "u8_02"
+        ],
+        "INTERNAL_MD_AVAIL": [
+            "u8_01",
+            "u8_01"
+        ],
+        "INTERNAL_MD_MANUFACTURER": [
+            "st_Senec",
+            "st_Senec"
+        ],
+        "INTERNAL_MD_MODEL": [
+            "st_V3 LV",
+            "st_V3 HV"
+        ],
+        "INTERNAL_MD_SERIAL": [
+            "st_767272HF008605630018",
+            "st_765856HF008607120001"
+        ],
+        "INTERNAL_MD_VERSION": [
+            "st_HMI: 3.16.20 PU: 4.3.10 BDC: 5.4.6",
+            "st_HMI: 3.16.20 PU: 4.3.10"
+        ],
+        "INTERNAL_PV_AVAIL": "u8_02",
+        "INV_MODEL": [
+            "st_",
+            "st_",
+            "st_END_OF_ARRAY"
+        ],
+        "INV_SERIAL": [
+            "st_",
+            "st_",
+            "st_END_OF_ARRAY"
+        ],
+        "INV_VERSIONS": [
+            "st_HMI: 3.16.20 PU: 4.3.10",
+            "st_HMI: 3.16.20 PU: 4.3.10",
+            "st_END_OF_ARRAY"
+        ],
+        "MPP_AVAIL": "u8_03",
+        "MPP_CUR": [
+            "fl_40AE978E",
+            "fl_40ACDD30",
+            "fl_40B0A3D8"
+        ],
+        "MPP_POWER": [
+            "fl_446F675D",
+            "fl_4443AF6D",
+            "fl_44B769B3"
+        ],
+        "MPP_VOL": [
+            "fl_4333B3B7",
+            "fl_431666EA",
+            "fl_43848313"
+        ],
+        "POWER_RATIO": "u3_00000064",
+        "POWER_RATIO_L1": "u3_00000064",
+        "POWER_RATIO_L2": "u3_00000064",
+        "POWER_RATIO_L3": "u3_00000064",
+        "PV_MISSING": "u8_00",
+        "P_TOTAL": "fl_C5487A8C",
+        "STATE_INT": [
+            "u3_00000110",
+            "u3_00000110"
+        ],
+        "TYPE": "u8_A0"
+    },
+    "RTC": {
+        "TIMESTAMP_MS": "u3_96B13924",
+        "UTC_OFFSET": "i3_00000078",
+        "WEB_TIME": "u3_635BE82C"
+    },
+    "SOCKETS": {
+        "ALREADY_SWITCHED": [
+            "u8_00",
+            "u8_00"
+        ],
+        "ENABLE": [
+            "u8_00",
+            "u8_00"
+        ],
+        "FORCE_ON": [
+            "u8_00",
+            "u8_00"
+        ],
+        "LOWER_LIMIT": [
+            "u1_0000",
+            "u1_0000"
+        ],
+        "NUMBER_OF_SOCKETS": "u8_02",
+        "POWER_ON": [
+            "u8_00",
+            "u8_00"
+        ],
+        "POWER_ON_TIME": [
+            "u1_0000",
+            "u1_0000"
+        ],
+        "PRIORITY": [
+            "u8_00",
+            "u8_00"
+        ],
+        "RESET_SWITCHED": "u8_00",
+        "SWITCH_ON_HOUR": [
+            "u8_00",
+            "u8_00"
+        ],
+        "SWITCH_ON_MINUTE": [
+            "u8_00",
+            "u8_00"
+        ],
+        "TIME_LIMIT": [
+            "u1_0000",
+            "u1_0000"
+        ],
+        "TIME_REM": [
+            "u1_0000",
+            "u1_0000"
+        ],
+        "UPPER_LIMIT": [
+            "u1_0000",
+            "u1_0000"
+        ],
+        "USE_TIME": [
+            "u8_00",
+            "u8_00"
+        ]
+    },
+    "STECA": {
+        "BAT": "u8_01",
+        "BDC_STATE": [
+            "u3_00040000",
+            "u3_00000000",
+            "u3_40000000"
+        ],
+        "ERROR": "u8_00",
+        "ERRORTEXT": "st_",
+        "ISLAND": "u8_00",
+        "NUM_PV_CONFIG_POSSIBLE": "u8_0A",
+        "PV": "u8_01",
+        "PVSS": "u8_04",
+        "PV_CONFIG_POSSIBLE": [
+            "u8_01",
+            "u8_01",
+            "u8_01",
+            "u8_02",
+            "u8_10",
+            "u8_01",
+            "u8_01",
+            "u8_10",
+            "u8_10",
+            "u8_10"
+        ],
+        "PV_INPUTS": "u8_02",
+        "RELAYS": "u3_0000000F",
+        "STARTUP": "u1_0110",
+        "STARTUP_ADD": "i3_FFFFFFFF"
+    },
+    "SYS_UPDATE": {
+        "FSM_STATE": "u8_01",
+        "MISC": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "NPU_IMAGE_VERSION": "u1_07DB",
+        "NPU_VER": "u1_0009",
+        "UPDATE_AVAILABLE": "u8_00",
+        "USER_REBOOT_DEVICE": "u8_00",
+        "USER_REQ_UPDATE": "u8_00"
+    },
+    "WALLBOX": {
+        "ADDITIONAL_ERROR": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "ALLOW_INTERCHARGE": "u8_00",
+        "APPARENT_CHARGING_POWER": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "BUS_ADR": [
+            "u8_01",
+            "u8_02",
+            "u8_03",
+            "u8_04"
+        ],
+        "CS_ENABLED": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "DETECTION_MODE": "u3_00000000",
+        "EV_CONNECTED": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "HW_TYPE": [
+            "u8_14",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "L1_CHARGING_CURRENT": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "L1_USED": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "L2_CHARGING_CURRENT": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "L2_USED": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "L3_CHARGING_CURRENT": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "L3_USED": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "LOAD_IMBALANCE_DETECTED": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "LOAD_IMBALANCE_ENABLED": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "MAJOR_REV": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "MAX_CHARGING_CURRENT_DEFAULT": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "MAX_CHARGING_CURRENT_IC": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "MAX_CHARGING_CURRENT_ICMAX": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "MAX_CHARGING_CURRENT_RATED": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "MAX_PHASE_CURRENT_BY_GRID": "fl_00000000",
+        "MAX_TOTAL_CURRENT_BY_GRID": "fl_00000000",
+        "METER_ENABLED": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "METHOD_EN1": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "MINOR_REV": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "MIN_CHARGING_CURRENT": [
+            "fl_41000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "PHASES_USED": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "PROHIBIT_USAGE": [
+            "u8_01",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "SAP_NUMBER": [
+            "st_40.020.0501/01",
+            "st_",
+            "st_",
+            "st_"
+        ],
+        "SERIAL_NUMBER": [
+            "st_010389",
+            "st_",
+            "st_",
+            "st_"
+        ],
+        "SERIAL_NUMBER_INTERNAL": [
+            "st_",
+            "st_",
+            "st_",
+            "st_"
+        ],
+        "SET_ICMAX": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "SET_IDEFAULT": [
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000",
+            "fl_00000000"
+        ],
+        "SMART_CHARGE_ACTIVE": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "SOCKET_ENABLED": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "STATE": [
+            "u8_F4",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "UID": [
+            "u6_0000000000000000",
+            "u6_0000000000000000",
+            "u6_0000000000000000",
+            "u6_0000000000000000"
+        ],
+        "UTMP": [
+            "u1_08A1",
+            "u1_0000",
+            "u1_0000",
+            "u1_0000"
+        ]
+    },
+    "WIZARD": {
+        "APPLICATION_HASH": "st_915c1a8bc4a89c7eabc06026919c30cb75368bb6",
+        "APPLICATION_VERSION": "st_2997",
+        "BOOT": "u8_01",
+        "CHARGE_PRIO": "u8_00",
+        "CONFIG_CHECKSUM": "u1_86F9",
+        "CONFIG_LOADED": "u8_01",
+        "CONFIG_MODIFIED_BY_USER": "u8_00",
+        "CONFIG_WRITE": "u8_00",
+        "DEVICE_BATTERY_TYPE": "u8_04",
+        "DEVICE_INVERTER_TYPE": "u8_A0",
+        "DEVICE_INV_ENABLED": [
+            "u8_01",
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "DEVICE_INV_PHASES_ARR": [
+            "u8_04",
+            "u8_04",
+            "u8_04",
+            "u8_04",
+            "u8_04",
+            "u8_04"
+        ],
+        "DEVICE_INV_SLAVE_ADRESS": [
+            "u8_03",
+            "u8_04",
+            "u8_05",
+            "u8_06",
+            "u8_07",
+            "u8_08"
+        ],
+        "DEVICE_PM_GRID_ENABLED": "u8_01",
+        "DEVICE_PM_HOUSE_ENABLED": "u8_00",
+        "DEVICE_PM_TYPE": "u8_01",
+        "DEVICE_WB_TYPE": "u8_02",
+        "FEATURECODE_ENTERED": "u8_00",
+        "FIRMWARE_VERSION": "st_954",
+        "GENERATION_METER_SN": "u3_00000000",
+        "GRID_CONNECTION_TYPE": "u8_02",
+        "GUI_LANG": "u8_00",
+        "HEATPUMP_METER_SN": "u3_00000000",
+        "HEAT_CONN_TYPE": "u8_02",
+        "INSULATION_RESISTANCE": "u3_000003E8",
+        "INTERFACE_VERSION": "st_2962",
+        "MAC_ADDRESS_BYTES": [
+            "u8_14",
+            "u8_1F",
+            "u8_BA",
+            "u8_21",
+            "u8_1A",
+            "u8_F5"
+        ],
+        "MASTER_SLAVE_ADDRESSES": [
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00",
+            "u8_00"
+        ],
+        "MASTER_SLAVE_MODE": "u8_00",
+        "POWER_METER_SERIAL": "u3_00000000",
+        "PS_ENABLE": "u8_01",
+        "PS_HOUR": "u8_00",
+        "PS_MINUTE": "u8_00",
+        "PS_RESERVOIR": "u8_3C",
+        "PV_CONFIG": [
+            "u8_01",
+            "u8_01"
+        ],
+        "PWRCFG_PEAK_PV_POWER": "fl_45ED8000",
+        "SENEC_METER_SN": "u3_00000000",
+        "SETUP_ABS_POWER": "u3_00000000",
+        "SETUP_AGBS_ACCEPTED": "u8_00",
+        "SETUP_HV_PHASE": "u8_02",
+        "SETUP_NUMBER_WALLBOXES": "u8_01",
+        "SETUP_PM_GRID_ADR": "u8_01",
+        "SETUP_PM_HOUSE_ADR": "u8_02",
+        "SETUP_POWER_RULE": "u8_46",
+        "SETUP_PV_INV_IP0": "u3_00000000",
+        "SETUP_PV_INV_IP1": "u3_00000000",
+        "SETUP_PV_INV_IP2": "u3_00000000",
+        "SETUP_PV_INV_IP3": "u3_00000000",
+        "SETUP_PV_INV_IP4": "u3_00000000",
+        "SETUP_PV_INV_IP5": "u3_00000000",
+        "SETUP_RCR_STEPS": [
+            "u1_0000",
+            "u1_001E",
+            "u1_003C",
+            "u1_0064"
+        ],
+        "SETUP_USED_PHASE": "u8_01",
+        "SETUP_USE_ABS_POWER": "u8_00",
+        "SETUP_USE_DRM0": "u8_00",
+        "SETUP_USE_RCR": "u8_00",
+        "SETUP_WALLBOX_SERIAL0": "st_010389",
+        "SETUP_WALLBOX_SERIAL1": "st_",
+        "SETUP_WALLBOX_SERIAL2": "st_",
+        "SETUP_WALLBOX_SERIAL3": "st_",
+        "SG_READY_CURR_MODE": "u8_01",
+        "SG_READY_ENABLED": "u8_00",
+        "SG_READY_ENABLE_OVERWRITE": "u8_00",
+        "SG_READY_EN_MODE1": "u8_00",
+        "SG_READY_OVERWRITE_RELAY": [
+            "u8_00",
+            "u8_00"
+        ],
+        "SG_READY_POWER_COMM": "u1_FFFF",
+        "SG_READY_POWER_PROP": "u1_FFFF",
+        "SG_READY_TIME": "u1_02D0",
+        "TEST_EG_METER": "u8_00",
+        "TEST_GENERATION_METER": "u8_00",
+        "TEST_HEATPUMP_METER": "u8_00",
+        "TEST_SENEC_METER": "u8_00",
+        "ZEROMODULE": "u8_00"
+    }
+}

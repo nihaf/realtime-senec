@@ -3,16 +3,30 @@
 
     <string name="app_name">RealtimeSenecApp</string>
 
+    <string name="unit_ampere">A</string>
+    <string name="unit_degree_centigrade">°C</string>
+    <string name="unit_hertz">Hz</string>
+    <string name="unit_kilowatt">kW</string>
+    <string name="unit_kilowatthour">kWh</string>
+    <string name="unit_megawatt">MW</string>
+    <string name="unit_megawatthour">MWh</string>
+    <string name="unit_percent">%</string>
+    <string name="unit_volt">V</string>
+    <string name="unit_watt">W</string>
+    <string name="unit_watthour">Wh</string>
+
     <string name="batt_type_name_0">Studer Xtender</string>
     <string name="batt_type_name_1">SenecBatt</string>
     <string name="batt_type_name_2">Senec.Inverter V2</string>
     <string name="batt_type_name_3">SENEC.Inverter V2.1</string>
     <string name="batt_type_name_4">SENEC.Inverter V3 LV</string>
 
-    <string name="enfluri_name_0">N/A</string>
-    <string name="enfluri_name_1">METER - GRID:</string>
-    <string name="enfluri_name_2">METER - CONSUMPTION:</string>
-    <string name="enfluri_name_3">METER - GENERATION:</string>
+    <string-array name="enfluri_name">
+        <item>N/A</item>
+        <item>METER - GRID:</item>
+        <item>METER - CONSUMPTION:</item>
+        <item>METER - GENERATION:</item>
+    </string-array>
 
     <string name="info_label_AcActivePower">ACTIVE POWER (W):</string>
     <string name="info_label_AcApparentPower">APPARENT POWER (VA):</string>
@@ -52,7 +66,7 @@
     <string name="info_label_MCUID">CONTROLLER-SN:</string>
     <string name="info_label_MaxCapacity">MAXIMUM CAPACITY (Ah):</string>
     <string name="info_label_NextState">DELAYED STATE:</string>
-    <string name="info_label_NoDesulfatCharge">DESULFATATIONCHARGES:</string>
+    <string name="info_label_NoDesulfatCharge">DESULFONATIONCHARGES:</string>
     <string name="info_label_NoLiModule">LI-MODULE COUNT :</string>
     <string name="info_label_OperatingHours">OPERATING HOURS (h):</string>
     <string name="info_label_PUConTotal">PU-CONSUMPTION (W):</string>
@@ -89,6 +103,7 @@
     <string name="internal_mpp_MppCurrent">Current [A DC]</string>
     <string name="internal_mpp_MppPower">Power [W DC]</string>
     <string name="internal_mpp_MppVoltage">Voltage [V DC]</string>
+
     <string name="inverter_type_INV_HV">SENEC.Home V3 HV Inverter</string>
     <string name="inverter_type_INV_LV">SENEC.Home V3 LV Inverter</string>
 
@@ -114,9 +129,9 @@
     <string name="status_pv_generated">PV-GENERATION</string>
 
     <string-array name="system_state_array">
-        <item>INITIALSTATE</item>
+        <item>INITIAL-STATE</item>
         <item>ERROR INVERTER COMMUNICATION</item>
-        <item>ERROR ELECTRICY METER</item>
+        <item>ERROR ELECTRICITY METER</item>
         <item>RIPPLE CONTROL RECEIVER</item>
         <item>INITIAL CHARGE</item>
         <item>MAINTENANCE CHARGE</item>
@@ -126,7 +141,7 @@
         <item>SAFETY CHARGE READY</item>
         <item>FULL CHARGE</item>
         <item>EQUALIZATION: CHARGE</item>
-        <item>DESULFATATION: CHARGE</item>
+        <item>DESULFONATION: CHARGE</item>
         <item>BATTERY FULL</item>
         <item>CHARGE</item>
         <item>BATTERY EMPTY</item>
@@ -138,7 +153,7 @@
         <item>OWN CONSUMPTION</item>
         <item>RESTART</item>
         <item>MAN. EQUALIZATION: CHARGE</item>
-        <item>MAN. DESULFATATION: CHARGE</item>
+        <item>MAN. DESULFONATION: CHARGE</item>
         <item>SAFETY CHARGE</item>
         <item>BATTERY PROTECTION MODE</item>
         <item>EG ERROR</item>
@@ -151,7 +166,7 @@
         <item>SOFTWARE UPDATE</item>
         <item>NSP ERROR</item>
         <item>NSP ERROR: GRID</item>
-        <item>NSP ERROR: HARDWRE</item>
+        <item>NSP ERROR: HARDWARE</item>
         <item>NO SERVER CONNECTION</item>
         <item>BMS ERROR</item>
         <item>MAINTENANCE: FILTER</item>
@@ -159,15 +174,15 @@
         <item>WAITING EXCESS</item>
         <item>CAPACITY TEST: CHARGE</item>
         <item>CAPACITY TEST: DISCHARGE</item>
-        <item>MAN. DESULFATATION: WAIT</item>
-        <item>MAN. DESULFATATION: READY</item>
-        <item>MAN. DESULFATATION: ERROR</item>
+        <item>MAN. DESULFONATION: WAIT</item>
+        <item>MAN. DESULFONATION: READY</item>
+        <item>MAN. DESULFONATION: ERROR</item>
         <item>EQUALIZATION: WAIT</item>
         <item>EMERGENCY CHARGE: ERROR</item>
         <item>MAN. EQUALIZATION: WAIT</item>
         <item>MAN. EQUALIZATION: ERROR</item>
         <item>MAN: EQUALIZATION: READY</item>
-        <item>AUTO. DESULFATATION: WAIT</item>
+        <item>AUTO. DESULFONATION: WAIT</item>
         <item>ABSORPTION PHASE</item>
         <item>DC-SWITCH OFF</item>
         <item>PEAK-SHAVING: WAIT</item>
@@ -185,8 +200,8 @@
         <item>GRID INITIALIZATION</item>
         <item>GRID STABILIZATION</item>
         <item>REMOTE SHUTDOWN</item>
-        <item>OFFPEAK-CHARGE</item>
-        <item>ERROR HALFBRIDGE</item>
+        <item>OFF-PEAK-CHARGE</item>
+        <item>ERROR HALF-BRIDGE</item>
         <item>BMS: ERROR OPERATING TEMPERATURE</item>
         <item>FACTORY SETTINGS NOT FOUND</item>
         <item>BACKUP POWER MODE - ACTIVE</item>
@@ -198,13 +213,13 @@
         <item>BMS UPDATE NEEDED</item>
         <item>BMS CONFIGURATION NEEDED</item>
         <item>INSULATION TEST</item>
-        <item>SELFTEST</item>
+        <item>SELF-TEST</item>
         <item>EXTERNAL CONTROL</item>
-        <item>ERROR: TEMPERATURESENSOR</item>
+        <item>ERROR: TEMPERATURE SENSOR</item>
         <item>GRID OPERATOR: CHARGE PROHIBITED</item>
         <item>GRID OPERATOR: DISCHARGE PROHIBITED</item>
         <item>SPARE CAPACITY</item>
-        <item>SELFTEST ERROR</item>
+        <item>SELF-TEST ERROR</item>
         <item>EARTH FAULT</item>
         <item>PV-MODE</item>
         <item>REMOTE DISCONNECTION</item>
@@ -215,25 +230,27 @@
         <item>BMS ERROR - MODULE IMBALANCE</item>
     </string-array>
 
-    <string name="system_type_0">Senec Home 8.0 / Pb</string>
-    <string name="system_type_1">Senec Business 30.0 / Pb</string>
-    <string name="system_type_11">Senec Home V2 10.0 / Pb</string>
-    <string name="system_type_12">OEM LG</string>
-    <string name="system_type_13">Senec Business V2_2ph / Lithium</string>
-    <string name="system_type_14">Senec Business V2 3ph / Lithium</string>
-    <string name="system_type_15">Senec Home V2.1 1ph / Lithium</string>
-    <string name="system_type_16">ADS Tec</string>
-    <string name="system_type_17">SENEC.Home V3 hybrid</string>
-    <string name="system_type_18">SENEC.Home V3 hybrid duo</string>
-    <string name="system_type_19">SENEC.Home V3 hybrid</string>
-    <string name="system_type_2">Solarinvert Storage 10.0 / Pb</string>
-    <string name="system_type_3">Senec Home 4.0 / Pb</string>
-    <string name="system_type_4">Senec Home 5.0/7.5/10.0 / Lithium</string>
-    <string name="system_type_5">Senec Home 15.0 / Lithium</string>
-    <string name="system_type_6">Senec Business 25.0 / Lithium</string>
-    <string name="system_type_7">Senec Home 6.0 Pb</string>
-    <string name="system_type_8">Senec Home 10.0 Pb</string>
-    <string name="system_type_9">Senec Home V2 5.0/7.5/10.0</string>
+    <string-array name="system_type">
+        <item>Senec Home 8.0 / Pb</item>
+        <item>Senec Business 30.0 / Pb</item>
+        <item>Solarinvert Storage 10.0 / Pb</item>
+        <item>Senec Home 4.0 / Pb</item>
+        <item>Senec Home 5.0/7.5/10.0 / Lithium</item>
+        <item>Senec Home 15.0 / Lithium</item>
+        <item>Senec Business 25.0 / Lithium</item>
+        <item>Senec Home 6.0 Pb</item>
+        <item>Senec Home 10.0 Pb</item>
+        <item>Senec Home V2 5.0/7.5/10.0</item>
+        <item>Senec Home V2 10.0 / Pb</item>
+        <item>OEM LG</item>
+        <item>Senec Business V2_2ph / Lithium</item>
+        <item>Senec Business V2 3ph / Lithium</item>
+        <item>Senec Home V2.1 1ph / Lithium</item>
+        <item>ADS Tec</item>
+        <item>SENEC.Home V3 hybrid</item>
+        <item>SENEC.Home V3 hybrid duo</item>
+        <item>SENEC.Home V3 hybrid</item>
+    </string-array>
 
     <string name="wallbox_state_0xA1">Waiting for EV</string>
     <string name="wallbox_state_0xB1">EV is asking for charging</string>
@@ -246,10 +263,6 @@
     <string name="wallbox_state_0xE2">EVCC can be programmed</string>
     <string name="wallbox_state_0xE3">Bus idle</string>
     <string name="wallbox_state_0xF1">Unintended closed contact (Welding)</string>
-    <string name="wallbox_state_0xF10">Temperature outside limits</string>
-    <string name="wallbox_state_0xF11">Unintended opened contact</string>
-    <string name="wallbox_state_0xF12">Reserved State</string>
-    <string name="wallbox_state_0xF13">Reserved State</string>
     <string name="wallbox_state_0xF2">Internal error</string>
     <string name="wallbox_state_0xF3">DC residual current detected</string>
     <string name="wallbox_state_0xF4">Upstream communication timeout</string>
@@ -258,5 +271,9 @@
     <string name="wallbox_state_0xF7">State D requested by EV</string>
     <string name="wallbox_state_0xF8">CP out of range</string>
     <string name="wallbox_state_0xF9">Overcurrent detected</string>
+    <string name="wallbox_state_0xF10">Temperature outside limits</string>
+    <string name="wallbox_state_0xF11">Unintended opened contact</string>
+    <string name="wallbox_state_0xF12">Reserved State</string>
+    <string name="wallbox_state_0xF13">Reserved State</string>
 
 </resources>

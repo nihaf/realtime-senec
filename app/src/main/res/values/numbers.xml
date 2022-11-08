@@ -2,5 +2,7 @@
 <resources>
 
     <integer name="energy_refresh_period_in_ms">2000</integer>
+    <dimen name="main_values">32sp</dimen>
+    <dimen name="main_icons">72dp</dimen>
 
 </resources>

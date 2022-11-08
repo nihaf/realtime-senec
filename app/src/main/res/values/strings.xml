@@ -3,6 +3,9 @@
 
     <string name="app_name">RealtimeSenecApp</string>
 
+    <string name="empty_text">-</string>
+    <string name="content_description_icons">icon</string>
+
     <string name="unit_ampere">A</string>
     <string name="unit_degree_centigrade">°C</string>
     <string name="unit_hertz">Hz</string>

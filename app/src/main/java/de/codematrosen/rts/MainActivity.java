@@ -3,9 +3,7 @@ package de.codematrosen.rts;
 import static java.util.Objects.requireNonNull;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,12 +26,18 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final DecimalFormat FORMAT = new DecimalFormat("#.##");
+
     private SenecService senecService;
     private TextView statusText;
     private TextView pvGenerationText;
+    private TextView pvGenerationUnit;
     private TextView batteryPowerText;
+    private TextView batteryPowerUnit;
     private TextView homeConsumptionText;
+    private TextView homeConsumptionUnit;
     private TextView gridPowerText;
+    private TextView gridPowerUnit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +46,13 @@ public class MainActivity extends AppCompatActivity {
 
         statusText = findViewById(R.id.text_value_status);
         pvGenerationText = findViewById(R.id.text_value_pv_generation);
+        pvGenerationUnit = findViewById(R.id.text_unit_pv_generation);
         batteryPowerText = findViewById(R.id.text_value_battery_charge);
+        batteryPowerUnit = findViewById(R.id.text_unit_battery_charge);
         homeConsumptionText = findViewById(R.id.text_value_home_consumption);
+        homeConsumptionUnit = findViewById(R.id.text_unit_home_consumption);
         gridPowerText = findViewById(R.id.text_value_grid_export);
+        gridPowerUnit = findViewById(R.id.text_unit_grid_export);
 
         // TODO load baseUrl from shared preferences
         senecService = SenecServiceGenerator.createService("http://192.168.254.56", SenecService.class);
@@ -54,16 +62,21 @@ public class MainActivity extends AppCompatActivity {
 
     private void fetchSenecEnergyValues() {
         Call<SenecEnergyResponseDto> call = senecService.getEnergyData(new SenecEnergyRequestDto());
+
         call.enqueue(new Callback<SenecEnergyResponseDto>() {
             @Override
             public void onResponse(@NonNull Call<SenecEnergyResponseDto> call, @NonNull Response<SenecEnergyResponseDto> response) {
                 SenecEnergyResponseDto senecEnergyResponseDto = requireNonNull(response.body());
                 Energy energy = EnergyDtoConverter.fromDto(senecEnergyResponseDto.getEnergy());
                 statusText.setText(getResources().getStringArray(R.array.system_state_array)[energy.getStatState()]);
-                pvGenerationText.setText(PowerUnitConverter.convert(energy.getGuiInverterPower()));
-                batteryPowerText.setText(PowerUnitConverter.convert(energy.getGuiBatDataPower()));
-                homeConsumptionText.setText(PowerUnitConverter.convert(energy.getGuiHousePow()));
-                gridPowerText.setText(PowerUnitConverter.convert((energy.getGuiGridPow())));
+                pvGenerationText.setText(FORMAT.format(energy.getGuiInverterPower()));
+                pvGenerationUnit.setText(getResources().getText(PowerUnitConverter.getUnitId(energy.getGuiInverterPower())));
+                batteryPowerText.setText(FORMAT.format(energy.getGuiBatDataPower()));
+                batteryPowerUnit.setText(getResources().getText(PowerUnitConverter.getUnitId(energy.getGuiBatDataPower())));
+                homeConsumptionText.setText(FORMAT.format(energy.getGuiHousePow()));
+                homeConsumptionUnit.setText(getResources().getText(PowerUnitConverter.getUnitId(energy.getGuiHousePow())));
+                gridPowerText.setText(FORMAT.format(energy.getGuiGridPow()));
+                gridPowerUnit.setText(getResources().getText(PowerUnitConverter.getUnitId(energy.getGuiGridPow())));
             }
 
             @Override

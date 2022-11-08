@@ -2,19 +2,16 @@ package de.codematrosen.rts.application.converter;
 
 import java.text.DecimalFormat;
 
+import de.codematrosen.rts.R;
+
 public class PowerUnitConverter {
 
-    private static final String UNIT_WATT = " W";
-    private static final String UNIT_KILOWATT = " kW";
-    private static final String UNIT_MEGAWATT = " MW";
-    private static final DecimalFormat FORMAT = new DecimalFormat("#.##");
-
-    public static String convert(float watts) {
+    public static int getUnitId(float watts) {
         if (watts >= 1000.0f && watts < 1000000.0f) {
-            return FORMAT.format(watts / 1000.0f) + UNIT_KILOWATT;
+            return R.string.unit_kilowatt;
         } else if (watts >= 1000000.0f) {
-            return FORMAT.format(watts / 1000000.0f) + UNIT_MEGAWATT;
+            return R.string.unit_megawatt;
         }
-        return FORMAT.format(watts) + UNIT_WATT;
+        return R.string.unit_watt;
     }
 }

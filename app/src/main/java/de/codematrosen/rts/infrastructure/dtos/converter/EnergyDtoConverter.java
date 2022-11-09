@@ -11,11 +11,15 @@ public class EnergyDtoConverter {
 
     public static Energy fromDto(EnergyReducedDto dto) {
         Energy energy = new Energy();
-        energy.setGuiBatDataFuelCharge(Optional.ofNullable(dto.getGuiBatDataFuelCharge())
+        energy.setGuiBatDataPower(Optional.ofNullable(dto.getGuiBatDataPower())
                 .map(HexConverter::convert)
                 .map(Float::parseFloat)
                 .orElse(null));
-        energy.setGuiBatDataPower(Optional.ofNullable(dto.getGuiBatDataPower())
+        energy.setGuiBatDataVoltage(Optional.ofNullable(dto.getGuiBatDataVoltage())
+                .map(HexConverter::convert)
+                .map(Float::parseFloat)
+                .orElse(null));
+        energy.setGuiBatDataCurrent(Optional.ofNullable(dto.getGuiBatDataCurrent())
                 .map(HexConverter::convert)
                 .map(Float::parseFloat)
                 .orElse(null));

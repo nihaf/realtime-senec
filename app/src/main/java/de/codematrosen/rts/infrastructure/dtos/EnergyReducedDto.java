@@ -3,10 +3,12 @@ package de.codematrosen.rts.infrastructure.dtos;
 import com.google.gson.annotations.SerializedName;
 
 public class EnergyReducedDto {
-    @SerializedName("GUI_BAT_DATA_FUEL_CHARGE")
-    private String guiBatDataFuelCharge;
     @SerializedName("GUI_BAT_DATA_POWER")
     private String guiBatDataPower;
+    @SerializedName("GUI_BAT_DATA_CURRENT")
+    private String guiBatDataCurrent;
+    @SerializedName("GUI_BAT_DATA_VOLTAGE")
+    private String guiBatDataVoltage;
     @SerializedName("GUI_BOOSTING_INFO")
     private String guiBoostingInfo;
     @SerializedName("GUI_CHARGING_INFO")
@@ -20,20 +22,28 @@ public class EnergyReducedDto {
     @SerializedName("STAT_STATE")
     private String statState;
 
-    public String getGuiBatDataFuelCharge() {
-        return guiBatDataFuelCharge;
-    }
-
-    public void setGuiBatDataFuelCharge(String guiBatDataFuelCharge) {
-        this.guiBatDataFuelCharge = guiBatDataFuelCharge;
-    }
-
     public String getGuiBatDataPower() {
         return guiBatDataPower;
     }
 
     public void setGuiBatDataPower(String guiBatDataPower) {
         this.guiBatDataPower = guiBatDataPower;
+    }
+
+    public String getGuiBatDataCurrent() {
+        return guiBatDataCurrent;
+    }
+
+    public void setGuiBatDataCurrent(String guiBatDataCurrent) {
+        this.guiBatDataCurrent = guiBatDataCurrent;
+    }
+
+    public String getGuiBatDataVoltage() {
+        return guiBatDataVoltage;
+    }
+
+    public void setGuiBatDataVoltage(String guiBatDataVoltage) {
+        this.guiBatDataVoltage = guiBatDataVoltage;
     }
 
     public String getGuiBoostingInfo() {

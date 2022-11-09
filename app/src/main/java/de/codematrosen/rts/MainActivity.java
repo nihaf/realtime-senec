@@ -35,8 +35,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView statusText;
     private TextView pvGenerationText;
     private TextView pvGenerationUnit;
+    private TextView batteryCurrentText;
     private TextView batteryPowerText;
     private TextView batteryPowerUnit;
+    private TextView batteryVoltageText;
     private TextView homeConsumptionText;
     private TextView homeConsumptionUnit;
     private TextView gridPowerText;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        int colorGray = getResources().getColor(android.R.color.darker_gray);
+        int colorGray = getResources().getColor(R.color.blue_800);
         ((ImageView) findViewById(R.id.image_pv_generation)).setColorFilter(colorGray, SRC_IN);
         batteryIconView = findViewById(R.id.image_battery);
         batteryIconView.setColorFilter(colorGray, SRC_IN);
@@ -56,7 +58,9 @@ public class MainActivity extends AppCompatActivity {
         statusText = findViewById(R.id.text_value_status);
         pvGenerationText = findViewById(R.id.text_value_pv_generation);
         pvGenerationUnit = findViewById(R.id.text_unit_pv_generation);
+        batteryCurrentText = findViewById(R.id.text_value_battery_current);
         batteryPowerText = findViewById(R.id.text_value_battery_charge);
+        batteryVoltageText = findViewById(R.id.text_value_battery_voltage);
         batteryPowerUnit = findViewById(R.id.text_unit_battery_charge);
         homeConsumptionText = findViewById(R.id.text_value_home_consumption);
         homeConsumptionUnit = findViewById(R.id.text_unit_home_consumption);
@@ -78,14 +82,19 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     Energy energy = fromDto(requireNonNull(response.body()).getEnergy());
                     statusText.setText(getResources().getStringArray(R.array.system_state_array)[energy.getStatState()]);
-                    Float inverterPower = energy.getGuiInverterPower();
+                    Float inverterPower = Math.abs(energy.getGuiInverterPower());
                     Float batteryPower = energy.getGuiBatDataPower();
+                    Float batteryCurrent = energy.getGuiBatDataCurrent();
+                    Float batteryVoltage = energy.getGuiBatDataVoltage();
                     Float housePower = energy.getGuiHousePow();
                     Float gridPower = energy.getGuiGridPow();
                     pvGenerationText.setText(FORMAT.format(inverterPower));
                     pvGenerationUnit.setText(getResources().getText(getUnitId(inverterPower)));
                     batteryPowerText.setText(FORMAT.format(batteryPower));
                     batteryPowerUnit.setText(getResources().getText(getUnitId(batteryPower)));
+                    batteryVoltageText.setText("" + batteryVoltage);
+                    batteryCurrentText.setText("" + batteryCurrent);
+
                     homeConsumptionText.setText(FORMAT.format(housePower));
                     homeConsumptionUnit.setText(getResources().getText(getUnitId(housePower)));
                     gridPowerText.setText(FORMAT.format(gridPower));

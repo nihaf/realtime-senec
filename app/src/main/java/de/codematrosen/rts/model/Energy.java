@@ -61,6 +61,22 @@ public class Energy {
         this.guiBatDataPower = guiBatDataPower;
     }
 
+    public Float getGuiBatDataCurrent() {
+        return guiBatDataCurrent;
+    }
+
+    public void setGuiBatDataCurrent(Float guiBatDataCurrent) {
+        this.guiBatDataCurrent = guiBatDataCurrent;
+    }
+
+    public Float getGuiBatDataVoltage() {
+        return guiBatDataVoltage;
+    }
+
+    public void setGuiBatDataVoltage(Float guiBatDataVoltage) {
+        this.guiBatDataVoltage = guiBatDataVoltage;
+    }
+
     public Boolean getGuiBoostingInfo() {
         return guiBoostingInfo;
     }

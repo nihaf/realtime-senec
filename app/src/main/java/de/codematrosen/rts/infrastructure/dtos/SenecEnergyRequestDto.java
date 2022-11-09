@@ -16,7 +16,8 @@ public class SenecEnergyRequestDto extends SenecRequestDto {
         energy.put("GUI_INVERTER_POWER", "");
         energy.put("GUI_GRID_POW", "");
         energy.put("GUI_HOUSE_POW", "");
-        energy.put("GUI_BAT_DATA_FUEL_CHARGE", "");
+        energy.put("GUI_BAT_DATA_VOLTAGE", "");
+        energy.put("GUI_BAT_DATA_CURRENT", "");
         energy.put("GUI_CHARGING_INFO", "");
         energy.put("GUI_BOOSTING_INFO", "");
     }

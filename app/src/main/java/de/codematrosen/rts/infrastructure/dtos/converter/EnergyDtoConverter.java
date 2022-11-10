@@ -15,6 +15,10 @@ public class EnergyDtoConverter {
                 .map(HexConverter::convert)
                 .map(Float::parseFloat)
                 .orElse(null));
+        energy.setGuiBatDataFuelCharge(Optional.ofNullable(dto.getGuiBatDataFuelCharge())
+                .map(HexConverter::convert)
+                .map(Float::parseFloat)
+                .orElse(null));
         energy.setGuiBatDataVoltage(Optional.ofNullable(dto.getGuiBatDataVoltage())
                 .map(HexConverter::convert)
                 .map(Float::parseFloat)

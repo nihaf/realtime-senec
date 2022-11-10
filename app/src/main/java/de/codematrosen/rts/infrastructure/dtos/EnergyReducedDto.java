@@ -3,6 +3,9 @@ package de.codematrosen.rts.infrastructure.dtos;
 import com.google.gson.annotations.SerializedName;
 
 public class EnergyReducedDto {
+
+    @SerializedName("GUI_BAT_DATA_FUEL_CHARGE")
+    private String guiBatDataFuelCharge;
     @SerializedName("GUI_BAT_DATA_POWER")
     private String guiBatDataPower;
     @SerializedName("GUI_BAT_DATA_CURRENT")
@@ -21,6 +24,14 @@ public class EnergyReducedDto {
     private String guiInverterPower;
     @SerializedName("STAT_STATE")
     private String statState;
+
+    public String getGuiBatDataFuelCharge() {
+        return guiBatDataFuelCharge;
+    }
+
+    public void setGuiBatDataFuelCharge(String guiBatDataFuelCharge) {
+        this.guiBatDataFuelCharge = guiBatDataFuelCharge;
+    }
 
     public String getGuiBatDataPower() {
         return guiBatDataPower;

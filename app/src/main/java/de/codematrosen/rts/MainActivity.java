@@ -102,9 +102,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initFetchDataTimer() {
-        if (fetchDataTimer == null) {
-            fetchDataTimer = new Timer("refresh-senec-timer");
-        }
+        fetchDataTimer = new Timer("refresh-senec-timer");
         fetchDataTimer.scheduleAtFixedRate(new RefreshFieldsTask(), 0, getResources().getInteger(R.integer.energy_refresh_period_in_ms));
     }
 

@@ -2,7 +2,8 @@
 <resources>
 
     <integer name="energy_refresh_period_in_ms">1000</integer>
-    <dimen name="main_values">32sp</dimen>
-    <dimen name="main_icons">72dp</dimen>
+    <dimen name="main_value_text_size">24sp</dimen>
+    <dimen name="main_icons_size">80dp</dimen>
+    <dimen name="main_icons_padding">16dp</dimen>
 
 </resources>

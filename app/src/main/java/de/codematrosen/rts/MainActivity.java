@@ -2,7 +2,6 @@ package de.codematrosen.rts;
 
 import static android.graphics.PorterDuff.Mode.SRC_IN;
 import static java.util.Objects.requireNonNull;
-import static de.codematrosen.rts.application.converter.PowerUnitConverter.getUnitId;
 import static de.codematrosen.rts.infrastructure.dtos.converter.EnergyDtoConverter.fromDto;
 
 import android.os.Bundle;
@@ -29,48 +28,84 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private static final DecimalFormat FORMAT = new DecimalFormat("#.##");
+    private static final DecimalFormat FORMAT = new DecimalFormat("#.#");
 
+    private Timer fetchDataTimer;
     private SenecService senecService;
-    private TextView statusText;
-    private TextView pvGenerationText;
-    private TextView pvGenerationUnit;
-    private TextView batteryCurrentText;
-    private TextView batteryPowerText;
-    private TextView batteryPowerUnit;
-    private TextView batteryVoltageText;
-    private TextView homeConsumptionText;
-    private TextView homeConsumptionUnit;
-    private TextView gridPowerText;
-    private TextView gridPowerUnit;
-    private ImageView batteryIconView;
+    private ImageView imageBattery;
+    private ImageView imageGrid;
+    private TextView textLabelBatteryPower;
+    private TextView textLabelGridPower;
+    private TextView textUnitBatteryPower;
+    private TextView textUnitGridPower;
+    private TextView textUnitHomeConsumption;
+    private TextView textUnitPvGeneration;
+    private TextView textValueBatteryCurrent;
+    private TextView textValueBatteryPower;
+    private TextView textValueBatteryVoltage;
+    private TextView textValueFuelGauge;
+    private TextView textValueGridPower;
+    private TextView textValueHomeConsumption;
+    private TextView textValuePvGeneration;
+    private TextView textValueStatus;
+    private int colorRed;
+    private int colorGreen;
+    private int colorBlue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        int colorGray = getResources().getColor(R.color.blue_800);
-        ((ImageView) findViewById(R.id.image_pv_generation)).setColorFilter(colorGray, SRC_IN);
-        batteryIconView = findViewById(R.id.image_battery);
-        batteryIconView.setColorFilter(colorGray, SRC_IN);
-        ((ImageView) findViewById(R.id.image_home)).setColorFilter(colorGray, SRC_IN);
-        ((ImageView) findViewById(R.id.image_grid)).setColorFilter(colorGray, SRC_IN);
-        statusText = findViewById(R.id.text_value_status);
-        pvGenerationText = findViewById(R.id.text_value_pv_generation);
-        pvGenerationUnit = findViewById(R.id.text_unit_pv_generation);
-        batteryCurrentText = findViewById(R.id.text_value_battery_current);
-        batteryPowerText = findViewById(R.id.text_value_battery_charge);
-        batteryVoltageText = findViewById(R.id.text_value_battery_voltage);
-        batteryPowerUnit = findViewById(R.id.text_unit_battery_charge);
-        homeConsumptionText = findViewById(R.id.text_value_home_consumption);
-        homeConsumptionUnit = findViewById(R.id.text_unit_home_consumption);
-        gridPowerText = findViewById(R.id.text_value_grid_export);
-        gridPowerUnit = findViewById(R.id.text_unit_grid_export);
+        colorRed = getResources().getColor(android.R.color.holo_red_dark);
+        colorGreen = getResources().getColor(android.R.color.holo_green_dark);
+        colorBlue = getResources().getColor(R.color.blue_800);
+
+        imageBattery = findViewById(R.id.image_battery);
+        imageGrid = findViewById(R.id.image_grid);
+
+        textLabelBatteryPower = findViewById(R.id.text_label_battery_charge);
+        textLabelGridPower = findViewById(R.id.text_label_grid_export);
+        textUnitBatteryPower = findViewById(R.id.text_unit_battery_charge);
+        textUnitGridPower = findViewById(R.id.text_unit_grid_export);
+        textUnitHomeConsumption = findViewById(R.id.text_unit_home_consumption);
+        textUnitPvGeneration = findViewById(R.id.text_unit_pv_generation);
+        textValueBatteryCurrent = findViewById(R.id.text_value_battery_current);
+        textValueBatteryPower = findViewById(R.id.text_value_battery_charge);
+        textValueBatteryVoltage = findViewById(R.id.text_value_battery_voltage);
+        textValueFuelGauge = findViewById(R.id.text_value_fuel);
+        textValueGridPower = findViewById(R.id.text_value_grid_export);
+        textValueHomeConsumption = findViewById(R.id.text_value_home_consumption);
+        textValuePvGeneration = findViewById(R.id.text_value_pv_generation);
+        textValueStatus = findViewById(R.id.text_value_status);
 
         // TODO load baseUrl from shared preferences
         senecService = SenecServiceGenerator.createService("http://192.168.254.56", SenecService.class);
-        new Timer("refresh-senec-timer")
-                .scheduleAtFixedRate(new RefreshFieldsTask(), 0, getResources().getInteger(R.integer.energy_refresh_period_in_ms));
+        initFetchDataTimer();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        initFetchDataTimer();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        fetchDataTimer.cancel();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        fetchDataTimer.cancel();
+    }
+
+    private void initFetchDataTimer() {
+        if (fetchDataTimer == null) {
+            fetchDataTimer = new Timer("refresh-senec-timer");
+        }
+        fetchDataTimer.scheduleAtFixedRate(new RefreshFieldsTask(), 0, getResources().getInteger(R.integer.energy_refresh_period_in_ms));
     }
 
     private void fetchSenecEnergyValues() {
@@ -81,29 +116,43 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(@NonNull Call<SenecEnergyResponseDto> call, @NonNull Response<SenecEnergyResponseDto> response) {
                 if (response.isSuccessful()) {
                     Energy energy = fromDto(requireNonNull(response.body()).getEnergy());
-                    statusText.setText(getResources().getStringArray(R.array.system_state_array)[energy.getStatState()]);
+                    textValueStatus.setText(getResources().getStringArray(R.array.system_state_array)[energy.getStatState()]);
+                    textValueFuelGauge.setText(FORMAT.format(energy.getGuiBatDataFuelCharge()));
                     Float inverterPower = Math.abs(energy.getGuiInverterPower());
                     Float batteryPower = energy.getGuiBatDataPower();
                     Float batteryCurrent = energy.getGuiBatDataCurrent();
                     Float batteryVoltage = energy.getGuiBatDataVoltage();
                     Float housePower = energy.getGuiHousePow();
                     Float gridPower = energy.getGuiGridPow();
-                    pvGenerationText.setText(FORMAT.format(inverterPower));
-                    pvGenerationUnit.setText(getResources().getText(getUnitId(inverterPower)));
-                    batteryPowerText.setText(FORMAT.format(batteryPower));
-                    batteryPowerUnit.setText(getResources().getText(getUnitId(batteryPower)));
-                    batteryVoltageText.setText("" + batteryVoltage);
-                    batteryCurrentText.setText("" + batteryCurrent);
 
-                    homeConsumptionText.setText(FORMAT.format(housePower));
-                    homeConsumptionUnit.setText(getResources().getText(getUnitId(housePower)));
-                    gridPowerText.setText(FORMAT.format(gridPower));
-                    gridPowerUnit.setText(getResources().getText(getUnitId(gridPower)));
+                    textValueBatteryCurrent.setText(FORMAT.format(batteryCurrent));
+                    textValueBatteryPower.setText(FORMAT.format(Math.abs(batteryPower)));
+                    textValueBatteryVoltage.setText(FORMAT.format(batteryVoltage));
+                    textValueGridPower.setText(FORMAT.format(Math.abs(gridPower)));
+                    textValueHomeConsumption.setText(FORMAT.format(housePower));
+                    textValuePvGeneration.setText(FORMAT.format(inverterPower));
+
+                    // batteryPowerUnit.setText(getResources().getText(getUnitId(batteryPower)));
+                    // gridPowerUnit.setText(getResources().getText(getUnitId(gridPower)));
+                    // homeConsumptionUnit.setText(getResources().getText(getUnitId(housePower)));
+                    // pvGenerationUnit.setText(getResources().getText(getUnitId(inverterPower)));
 
                     if (energy.getGuiBoostingInfo()) {
-                        batteryIconView.setColorFilter(getResources().getColor(android.R.color.holo_red_dark), SRC_IN);
+                        imageBattery.setColorFilter(colorRed, SRC_IN);
+                        textLabelBatteryPower.setText(getResources().getText(R.string.status_battery_discharge));
                     } else if (energy.getGuiChargingInfo()) {
-                        batteryIconView.setColorFilter(getResources().getColor(android.R.color.holo_green_dark), SRC_IN);
+                        imageBattery.setColorFilter(colorGreen, SRC_IN);
+                        textLabelBatteryPower.setText(getResources().getText(R.string.status_battery_charge));
+                    } else {
+                        imageBattery.setColorFilter(colorBlue, SRC_IN);
+                        textLabelBatteryPower.setText(getResources().getText(R.string.status_battery_charge));
+                    }
+                    if (gridPower > 0.0f) {
+                        imageGrid.setColorFilter(colorRed, SRC_IN);
+                        textLabelGridPower.setText(getResources().getText(R.string.status_grid_import));
+                    } else {
+                        imageGrid.setColorFilter(colorGreen, SRC_IN);
+                        textLabelGridPower.setText(getResources().getText(R.string.status_grid_export));
                     }
                 } else {
                     Log.w(TAG, "" + response.errorBody());

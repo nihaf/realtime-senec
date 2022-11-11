@@ -1,4 +1,4 @@
-package de.codematrosen.rts.converter;
+package de.codematrosen.rts.application.converter;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -8,16 +8,16 @@ public class HexConverterTest {
 
     @Test
     public void convertBasedOnPrefix() {
-        assertThat(HexConverter.fromString("fl_4364BC05")).isEqualTo(228.73445f);
-        assertThat(HexConverter.fromString("u1_0009")).isEqualTo(9L);
-        assertThat(HexConverter.fromString("u1_0029")).isEqualTo(41L);
-        assertThat(HexConverter.fromString("u3_635AF0A8")).isEqualTo(1666904232L);
-        assertThat(HexConverter.fromString("u3_000007F7")).isEqualTo(2039L);
-        assertThat(HexConverter.fromString("ch_val")).isEqualTo("val");
-        assertThat(HexConverter.fromString("st_40.020.0501/01")).isEqualTo("40.020.0501/01");
-        assertThat(HexConverter.fromString("u8_00")).isEqualTo(0L);
-        assertThat(HexConverter.fromString("u8_02")).isEqualTo(2L);
-        assertThat(HexConverter.fromString("u8_10")).isEqualTo(16L);
+        assertThat(HexConverter.convert("fl_4364BC05")).isEqualTo("228.73445");
+        assertThat(HexConverter.convert("u1_0009")).isEqualTo("9");
+        assertThat(HexConverter.convert("u1_0029")).isEqualTo("41");
+        assertThat(HexConverter.convert("u3_635AF0A8")).isEqualTo("1666904232");
+        assertThat(HexConverter.convert("u3_000007F7")).isEqualTo("2039");
+        assertThat(HexConverter.convert("ch_val")).isEqualTo("val");
+        assertThat(HexConverter.convert("st_40.020.0501/01")).isEqualTo("40.020.0501/01");
+        assertThat(HexConverter.convert("u8_00")).isEqualTo("0");
+        assertThat(HexConverter.convert("u8_02")).isEqualTo("2");
+        assertThat(HexConverter.convert("u8_10")).isEqualTo("16");
     }
 
     @Test

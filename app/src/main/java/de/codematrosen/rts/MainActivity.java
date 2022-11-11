@@ -36,10 +36,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imageGrid;
     private TextView textLabelBatteryPower;
     private TextView textLabelGridPower;
-    private TextView textUnitBatteryPower;
-    private TextView textUnitGridPower;
-    private TextView textUnitHomeConsumption;
-    private TextView textUnitPvGeneration;
     private TextView textValueBatteryCurrent;
     private TextView textValueBatteryPower;
     private TextView textValueBatteryVoltage;
@@ -56,19 +52,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        colorRed = getResources().getColor(android.R.color.holo_red_dark);
-        colorGreen = getResources().getColor(android.R.color.holo_green_dark);
-        colorBlue = getResources().getColor(R.color.blue_800);
+        colorRed = getResources().getColor(android.R.color.holo_red_dark, getApplicationContext().getTheme());
+        colorGreen = getResources().getColor(android.R.color.holo_green_dark, getApplicationContext().getTheme());
+        colorBlue = getResources().getColor(R.color.blue_800, getApplicationContext().getTheme());
 
         imageBattery = findViewById(R.id.image_battery);
         imageGrid = findViewById(R.id.image_grid);
 
         textLabelBatteryPower = findViewById(R.id.text_label_battery_charge);
         textLabelGridPower = findViewById(R.id.text_label_grid_export);
-        textUnitBatteryPower = findViewById(R.id.text_unit_battery_charge);
-        textUnitGridPower = findViewById(R.id.text_unit_grid_export);
-        textUnitHomeConsumption = findViewById(R.id.text_unit_home_consumption);
-        textUnitPvGeneration = findViewById(R.id.text_unit_pv_generation);
         textValueBatteryCurrent = findViewById(R.id.text_value_battery_current);
         textValueBatteryPower = findViewById(R.id.text_value_battery_charge);
         textValueBatteryVoltage = findViewById(R.id.text_value_battery_voltage);
@@ -129,11 +121,6 @@ public class MainActivity extends AppCompatActivity {
                     textValueGridPower.setText(FORMAT.format(Math.abs(gridPower)));
                     textValueHomeConsumption.setText(FORMAT.format(housePower));
                     textValuePvGeneration.setText(FORMAT.format(inverterPower));
-
-                    // batteryPowerUnit.setText(getResources().getText(getUnitId(batteryPower)));
-                    // gridPowerUnit.setText(getResources().getText(getUnitId(gridPower)));
-                    // homeConsumptionUnit.setText(getResources().getText(getUnitId(housePower)));
-                    // pvGenerationUnit.setText(getResources().getText(getUnitId(inverterPower)));
 
                     if (energy.getGuiBoostingInfo()) {
                         imageBattery.setColorFilter(colorRed, SRC_IN);

@@ -3,26 +3,26 @@
 
     <string name="app_name">RealtimeSenecApp</string>
 
-    <string name="empty_text">-</string>
     <string name="content_description_icons">icon</string>
 
-    <string name="unit_ampere">A</string>
-    <string name="unit_degree_centigrade">°C</string>
-    <string name="unit_hertz">Hz</string>
-    <string name="unit_kilowatt">kW</string>
-    <string name="unit_kilowatthour">kWh</string>
-    <string name="unit_megawatt">MW</string>
-    <string name="unit_megawatthour">MWh</string>
-    <string name="unit_percent">%</string>
+    <string name="empty_text" translatable="false">-</string>
+    <string name="unit_ampere" translatable="false">A</string>
+    <string name="unit_degree_centigrade" translatable="false">°C</string>
+    <string name="unit_hertz" translatable="false">Hz</string>
+    <string name="unit_kilowatt" translatable="false">kW</string>
+    <string name="unit_kilowatthour" translatable="false">kWh</string>
+    <string name="unit_megawatt" translatable="false">MW</string>
+    <string name="unit_megawatthour" translatable="false">MWh</string>
+    <string name="unit_percent" translatable="false">%</string>
     <string name="unit_volt">V</string>
-    <string name="unit_watt">W</string>
-    <string name="unit_watthour">Wh</string>
+    <string name="unit_watt" translatable="false">W</string>
+    <string name="unit_watthour" translatable="false">Wh</string>
 
-    <string name="batt_type_name_0">Studer Xtender</string>
-    <string name="batt_type_name_1">SenecBatt</string>
-    <string name="batt_type_name_2">Senec.Inverter V2</string>
-    <string name="batt_type_name_3">SENEC.Inverter V2.1</string>
-    <string name="batt_type_name_4">SENEC.Inverter V3 LV</string>
+    <string name="batt_type_name_0" translatable="false">Studer Xtender</string>
+    <string name="batt_type_name_1" translatable="false">SenecBatt</string>
+    <string name="batt_type_name_2" translatable="false">Senec.Inverter V2</string>
+    <string name="batt_type_name_3" translatable="false">SENEC.Inverter V2.1</string>
+    <string name="batt_type_name_4" translatable="false">SENEC.Inverter V3 LV</string>
 
     <string-array name="enfluri_name">
         <item>N/A</item>
@@ -31,84 +31,84 @@
         <item>METER - GENERATION:</item>
     </string-array>
 
-    <string name="info_label_AcActivePower">ACTIVE POWER (W):</string>
-    <string name="info_label_AcApparentPower">APPARENT POWER (VA):</string>
-    <string name="info_label_AcReactivePower">REACTIVE POWER (VAr):</string>
-    <string name="info_label_Accu">BATTERY:</string>
-    <string name="info_label_BattInverterType">INVERTER-TYPE :</string>
-    <string name="info_label_BatteryCurrent">BATTERY CURRENT (A):</string>
-    <string name="info_label_BatteryCurrentEach">CURRENT (A) PER INVERTER:</string>
-    <string name="info_label_BatteryPower">BATTERY POWER (W):</string>
-    <string name="info_label_BatteryVoltage">BATTERY VOLTAGE (V):</string>
-    <string name="info_label_CEIStatus">STATUS GRID PARAMETER CONTROL (CEI)</string>
-    <string name="info_label_CapacityTestValue">CAPACITY TEST RES. (Wh):</string>
-    <string name="info_label_Current">CURRENT (A):</string>
-    <string name="info_label_DurationCharge">TOTAL CHARGE DURATION (min):</string>
-    <string name="info_label_ExportLimit">EXPORT-LIMIT.:</string>
-    <string name="info_label_FeatureCar">CHARGE-STATION:</string>
-    <string name="info_label_FeatureCloud">SENEC.CLOUD:</string>
-    <string name="info_label_FeatureEcoGrid">ECONAMIC-GRID:</string>
-    <string name="info_label_FeatureHeatBox">HEATING-ELEMENT:</string>
-    <string name="info_label_FeatureIsland">BACKUP POWER MODE:</string>
-    <string name="info_label_FeatureIslandPro">BACKUP POWER MODE PRO:</string>
-    <string name="info_label_FeaturePackage">FEATURE PACKAGES:</string>
-    <string name="info_label_FeaturePeakShaving">PEAK-SHAVING:</string>
-    <string name="info_label_FeatureSGready">SG-READY:</string>
-    <string name="info_label_FeatureSHKW">SOLARINVERT SHKW:</string>
-    <string name="info_label_FeatureSockets">POWER-SOCKETS:</string>
-    <string name="info_label_Frequency">FREQUENCY (Hz):</string>
-    <string name="info_label_FuelGauge">FUELGAUGE (%):</string>
-    <string name="info_label_Homeconsumption">HOUSECONSUMPTION (W):</string>
-    <string name="info_label_Inv1Temp">INVERTER 1 TEMP. (°C):</string>
-    <string name="info_label_Inv2Temp">INVERTER 2 TEMP. (°C):</string>
-    <string name="info_label_Inv3Temp">INVERTER 3 TEMP. (°C):</string>
-    <string name="info_label_InverterPhase">CHARGEPHASE:</string>
-    <string name="info_label_IslandMode">BACKUP POWER MODE:</string>
-    <string name="info_label_LastMaintenance">LAST MAINTENANCE (d):</string>
-    <string name="info_label_MACADDRESS">MAC-ADDRESS:</string>
-    <string name="info_label_MCUID">CONTROLLER-SN:</string>
-    <string name="info_label_MaxCapacity">MAXIMUM CAPACITY (Ah):</string>
-    <string name="info_label_NextState">DELAYED STATE:</string>
-    <string name="info_label_NoDesulfatCharge">DESULFONATIONCHARGES:</string>
-    <string name="info_label_NoLiModule">LI-MODULE COUNT :</string>
-    <string name="info_label_OperatingHours">OPERATING HOURS (h):</string>
-    <string name="info_label_PUConTotal">PU-CONSUMPTION (W):</string>
-    <string name="info_label_PVGeneration">PV-GENERATION (W):</string>
-    <string name="info_label_PVLimitL1">PV-LIMITATION L1 (%):</string>
-    <string name="info_label_PVLimitL2">PV-LIMITATION L2 (%):</string>
-    <string name="info_label_PVLimitL3">PV-LIMITATION L3 (%):</string>
-    <string name="info_label_Power">POWER (W):</string>
-    <string name="info_label_PowerValues">POWER VALUE:</string>
-    <string name="info_label_PvInv">INT. PV INVERTER:</string>
-    <string name="info_label_PvInvVersions">VERSIONS:</string>
-    <string name="info_label_State">STATE:</string>
-    <string name="info_label_System">SYSTEM:</string>
-    <string name="info_label_TimeRemainCharge">REM. CHARGE (min):</string>
-    <string name="info_label_TimeRemainEqual">REM. EQUALIZATION (min):</string>
-    <string name="info_label_TotalCharge">TOTAL CHARGED ENERGY (kWh):</string>
-    <string name="info_label_TotalPower">TOTAL POWER (W):</string>
-    <string name="info_label_Type">TYPE :</string>
-    <string name="info_label_UnbalancedLoadLimit">POWERSKEW-LIMIT:</string>
-    <string name="info_label_Voltage">VOLTAGE (V):</string>
-    <string name="info_label_VoltageLimit">LOW VOLTAGE-LIMIT.:</string>
-    <string name="info_label_WBConTotal">WB-CONSUMPTION (W):</string>
-    <string name="info_label_revision_BDC">"REVISION BDC:</string>
-    <string name="info_label_revision_GUI">REVISION GUI:</string>
-    <string name="info_label_revision_HMI">REVISION HMI:</string>
-    <string name="info_label_revision_INV">REVISION INV:</string>
-    <string name="info_label_revision_MCU">REVISION MCU:</string>
-    <string name="info_label_revision_MCUBL">REVISION MCU-BL:</string>
-    <string name="info_label_revision_NPU">REVISION NPU-REGS:</string>
-    <string name="info_label_revision_NPUImage">REVISION NPU-IMAGE:</string>
-    <string name="info_label_revision_NSP">REVISION NSP:</string>
-    <string name="info_label_revision_PU">"REVISION PU:</string>
+    <string name="info_label_AcActivePower">Active Power (W):</string>
+    <string name="info_label_AcApparentPower">Apparent Power (VA):</string>
+    <string name="info_label_AcReactivePower">Reactive Power (VAr):</string>
+    <string name="info_label_Accu">Battery:</string>
+    <string name="info_label_BattInverterType">Inverter-Type:</string>
+    <string name="info_label_BatteryCurrent">Battery Current (A):</string>
+    <string name="info_label_BatteryCurrentEach">Current (A) per Inverter:</string>
+    <string name="info_label_BatteryPower">Battery Power (W):</string>
+    <string name="info_label_BatteryVoltage">Battery Voltage (V):</string>
+    <string name="info_label_CEIStatus">Status Grid Parameter Control (CEI)</string>
+    <string name="info_label_CapacityTestValue">Capacity Test Res. (Wh):</string>
+    <string name="info_label_Current">Current (A):</string>
+    <string name="info_label_DurationCharge">Total Charge Duration (min):</string>
+    <string name="info_label_ExportLimit">Export-Limit.:</string>
+    <string name="info_label_FeatureCar">Charge-Station:</string>
+    <string name="info_label_FeatureCloud">Senec.CLOUD:</string>
+    <string name="info_label_FeatureEcoGrid">Econamic-Grid:</string>
+    <string name="info_label_FeatureHeatBox">Heating-Element:</string>
+    <string name="info_label_FeatureIsland">Backup Power Mode:</string>
+    <string name="info_label_FeatureIslandPro">Backup Power Mode Pro:</string>
+    <string name="info_label_FeaturePackage">Feature Packages:</string>
+    <string name="info_label_FeaturePeakShaving">Peak-Shaving:</string>
+    <string name="info_label_FeatureSGready">SG-Ready:</string>
+    <string name="info_label_FeatureSHKW">Solarinvert SHKW:</string>
+    <string name="info_label_FeatureSockets">Power-Sockets:</string>
+    <string name="info_label_Frequency">Frequency (Hz):</string>
+    <string name="info_label_FuelGauge">Fuel Gauge (%):</string>
+    <string name="info_label_Homeconsumption">House Consumption (W):</string>
+    <string name="info_label_Inv1Temp">Inverter 1 Temp. (°C):</string>
+    <string name="info_label_Inv2Temp">Inverter 2 Temp. (°C):</string>
+    <string name="info_label_Inv3Temp">Inverter 3 Temp. (°C):</string>
+    <string name="info_label_InverterPhase">Charge Phase:</string>
+    <string name="info_label_IslandMode">Backup Power Mode:</string>
+    <string name="info_label_LastMaintenance">Last Maintenance (d):</string>
+    <string name="info_label_MACADDRESS">MAC-Address:</string>
+    <string name="info_label_MCUID">Controller-SN:</string>
+    <string name="info_label_MaxCapacity">Maximum Capacity (Ah):</string>
+    <string name="info_label_NextState">Delayed State:</string>
+    <string name="info_label_NoDesulfatCharge">Desulfonation Charges:</string>
+    <string name="info_label_NoLiModule">LI-Module Count:</string>
+    <string name="info_label_OperatingHours">Operating Hours (h):</string>
+    <string name="info_label_PUConTotal">PU-Consumption (W):</string>
+    <string name="info_label_PVGeneration">PV-Generation (W):</string>
+    <string name="info_label_PVLimitL1">PV-Limitation L1 (%):</string>
+    <string name="info_label_PVLimitL2">PV-Limitation L2 (%):</string>
+    <string name="info_label_PVLimitL3">PV-Limitation L3 (%):</string>
+    <string name="info_label_Power">Power (W):</string>
+    <string name="info_label_PowerValues">Power Value:</string>
+    <string name="info_label_PvInv">Int. PV Inverter:</string>
+    <string name="info_label_PvInvVersions">Versions:</string>
+    <string name="info_label_State">State:</string>
+    <string name="info_label_System">System:</string>
+    <string name="info_label_TimeRemainCharge">Rem. Charge (min):</string>
+    <string name="info_label_TimeRemainEqual">Rem. Equalization (min):</string>
+    <string name="info_label_TotalCharge">Total Charged Energy (kWh):</string>
+    <string name="info_label_TotalPower">Total Power (W):</string>
+    <string name="info_label_Type">Type:</string>
+    <string name="info_label_UnbalancedLoadLimit">Powerskew-Limit:</string>
+    <string name="info_label_Voltage">Voltage (V):</string>
+    <string name="info_label_VoltageLimit">Low Voltage-Limit.:</string>
+    <string name="info_label_WBConTotal">WB-Consumption (W):</string>
+    <string name="info_label_revision_BDC">Revision BDC:</string>
+    <string name="info_label_revision_GUI">Revision GUI:</string>
+    <string name="info_label_revision_HMI">Revision HMI:</string>
+    <string name="info_label_revision_INV">Revision INV:</string>
+    <string name="info_label_revision_MCU">Revision MCU:</string>
+    <string name="info_label_revision_MCUBL">Revision MCU-BL:</string>
+    <string name="info_label_revision_NPU">Revision NPU-Regs:</string>
+    <string name="info_label_revision_NPUImage">Revision NPU-Image:</string>
+    <string name="info_label_revision_NSP">Revision NSP:</string>
+    <string name="info_label_revision_PU">"Revision PU:</string>
 
     <string name="internal_mpp_MppCurrent">Current [A DC]</string>
     <string name="internal_mpp_MppPower">Power [W DC]</string>
     <string name="internal_mpp_MppVoltage">Voltage [V DC]</string>
 
-    <string name="inverter_type_INV_HV">SENEC.Home V3 HV Inverter</string>
-    <string name="inverter_type_INV_LV">SENEC.Home V3 LV Inverter</string>
+    <string name="inverter_type_INV_HV" translatable="false">SENEC.Home V3 HV Inverter</string>
+    <string name="inverter_type_INV_LV" translatable="false">SENEC.Home V3 LV Inverter</string>
 
     <string name="power_unit_status_0">Overcurrent</string>
     <string name="power_unit_status_1">Overtemperature</string>
@@ -124,12 +124,12 @@
     <string name="power_unit_status_16">Sensorcount error</string>
     <string name="power_unit_status_17">Main switch Off</string>
 
-    <string name="status_battery_charge">BATTERY-CHARGE</string>
-    <string name="status_battery_discharge">BATTERY DISCHARGE</string>
-    <string name="status_grid_export">GRID EXPORT</string>
-    <string name="status_grid_import">GRID-IMPORT</string>
-    <string name="status_home_consumption">HOMECONSUMPTION</string>
-    <string name="status_pv_generated">PV-GENERATION</string>
+    <string name="status_battery_charge">Charge Battery</string>
+    <string name="status_battery_discharge">Discharge Battery</string>
+    <string name="status_grid_export">Export to Grid</string>
+    <string name="status_grid_import">Import from Grid</string>
+    <string name="status_home_consumption">Home-Consumption</string>
+    <string name="status_pv_generated">PV-Generation</string>
 
     <string-array name="system_state_array">
         <item>INITIAL-STATE</item>
@@ -146,9 +146,9 @@
         <item>EQUALIZATION: CHARGE</item>
         <item>DESULFONATION: CHARGE</item>
         <item>BATTERY FULL</item>
-        <item>CHARGE</item>
+        <item>CHARGE BATTERY</item>
         <item>BATTERY EMPTY</item>
-        <item>DISCHARGE</item>
+        <item>DISCHARGE BATTERY</item>
         <item>PV + DISCHARGE</item>
         <item>GRID + DISCHARGE</item>
         <item>PASSIVE</item>
@@ -203,7 +203,7 @@
         <item>GRID INITIALIZATION</item>
         <item>GRID STABILIZATION</item>
         <item>REMOTE SHUTDOWN</item>
-        <item>OFF-PEAK-CHARGE</item>
+        <item>OFF-PEAK CHARGE</item>
         <item>ERROR HALF-BRIDGE</item>
         <item>BMS: ERROR OPERATING TEMPERATURE</item>
         <item>FACTORY SETTINGS NOT FOUND</item>

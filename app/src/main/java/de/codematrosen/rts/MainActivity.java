@@ -52,8 +52,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        colorRed = getResources().getColor(android.R.color.holo_red_dark, getApplicationContext().getTheme());
-        colorGreen = getResources().getColor(android.R.color.holo_green_dark, getApplicationContext().getTheme());
+        colorRed = getResources().getColor(R.color.red, getApplicationContext().getTheme());
+        colorGreen = getResources().getColor(R.color.green, getApplicationContext().getTheme());
         colorBlue = getResources().getColor(R.color.blue_800, getApplicationContext().getTheme());
 
         imageBattery = findViewById(R.id.image_battery);

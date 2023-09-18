@@ -161,11 +161,106 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/layout_main_row3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:baselineAligned="false"
+            android:gravity="top"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/row2_col1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/image_home"
+                    android:layout_width="@dimen/main_icons_size"
+                    android:layout_height="@dimen/main_icons_size"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="@string/content_description_icons"
+                    android:padding="@dimen/main_icons_padding"
+                    app:srcCompat="@drawable/small_icon_house"
+                    app:tint="@color/blue_800" />
+
+                <TextView
+                    android:id="@+id/text_label_home_consumption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/status_home_consumption"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/text_value_home_consumption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:text="@string/empty_text"
+                    android:textSize="@dimen/main_value_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_unit_home_consumption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/unit_watt"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/row2_col2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/image_grid"
+                    android:layout_width="@dimen/main_icons_size"
+                    android:layout_height="@dimen/main_icons_size"
+                    android:layout_marginBottom="8dp"
+                    android:contentDescription="@string/content_description_icons"
+                    android:padding="@dimen/main_icons_padding"
+                    app:srcCompat="@drawable/small_icon_reuse_electricity"
+                    app:tint="@color/blue_800" />
+
+                <TextView
+                    android:id="@+id/text_label_grid_export"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/status_grid_export"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/text_value_grid_export"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
+                    android:text="@string/empty_text"
+                    android:textSize="@dimen/main_value_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/text_unit_grid_export"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/unit_watt"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/layout_main_row2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
             android:orientation="horizontal">
 
@@ -221,106 +316,124 @@
                         android:layout_weight="1"
                         android:text="@string/empty_text" />
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_label_battery_voltage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/info_label_BatteryVoltage"
+                        tools:layout_conversion_absoluteHeight="19dp"
+                        tools:layout_conversion_absoluteWidth="147dp"
+                        tools:layout_editor_absoluteX="96dp"
+                        tools:layout_editor_absoluteY="333dp" />
+
+                    <TextView
+                        android:id="@+id/text_value_battery_voltage"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/empty_text"
+                        tools:layout_conversion_absoluteHeight="19dp"
+                        tools:layout_conversion_absoluteWidth="8dp"
+                        tools:layout_editor_absoluteX="243dp"
+                        tools:layout_editor_absoluteY="333dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_label_wallbox_state"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/info_label_wallbox_state"
+                        tools:layout_conversion_absoluteHeight="19dp"
+                        tools:layout_conversion_absoluteWidth="147dp"
+                        tools:layout_editor_absoluteX="96dp"
+                        tools:layout_editor_absoluteY="333dp" />
+
+                    <TextView
+                        android:id="@+id/text_value_wallbox_state"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/empty_text"
+                        android:textStyle="bold"
+                        tools:layout_conversion_absoluteHeight="19dp"
+                        tools:layout_conversion_absoluteWidth="8dp"
+                        tools:layout_editor_absoluteX="243dp"
+                        tools:layout_editor_absoluteY="333dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_label_wallbox_current"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/info_label_wallbox_current"
+                        tools:layout_conversion_absoluteHeight="19dp"
+                        tools:layout_conversion_absoluteWidth="147dp"
+                        tools:layout_editor_absoluteX="96dp"
+                        tools:layout_editor_absoluteY="333dp" />
+
+                    <TextView
+                        android:id="@+id/text_value_wallbox_current"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/empty_text"
+                        android:textStyle="bold"
+                        tools:layout_conversion_absoluteHeight="19dp"
+                        tools:layout_conversion_absoluteWidth="8dp"
+                        tools:layout_editor_absoluteX="243dp"
+                        tools:layout_editor_absoluteY="333dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_label_wallbox_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/info_label_wallbox_total_power"
+                        tools:layout_conversion_absoluteHeight="19dp"
+                        tools:layout_conversion_absoluteWidth="147dp"
+                        tools:layout_editor_absoluteX="96dp"
+                        tools:layout_editor_absoluteY="333dp" />
+
+                    <TextView
+                        android:id="@+id/text_value_wallbox_total"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/empty_text"
+                        android:textStyle="bold"
+                        tools:layout_conversion_absoluteHeight="19dp"
+                        tools:layout_conversion_absoluteWidth="8dp"
+                        tools:layout_editor_absoluteX="243dp"
+                        tools:layout_editor_absoluteY="333dp" />
+                </LinearLayout>
             </LinearLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout_main_row3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:baselineAligned="false"
-            android:gravity="top"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/row2_col1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingVertical="8dp">
-
-                <ImageView
-                    android:id="@+id/image_home"
-                    android:layout_width="@dimen/main_icons_size"
-                    android:layout_height="@dimen/main_icons_size"
-                    android:layout_marginBottom="8dp"
-                    android:contentDescription="@string/content_description_icons"
-                    android:padding="@dimen/main_icons_padding"
-                    app:srcCompat="@drawable/small_icon_house"
-                    app:tint="@color/blue_800" />
-
-                <TextView
-                    android:id="@+id/text_label_home_consumption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/status_home_consumption"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/text_value_home_consumption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="4dp"
-                    android:text="@string/empty_text"
-                    android:textSize="@dimen/main_value_text_size"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/text_unit_home_consumption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/unit_watt"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/row2_col2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingVertical="8dp">
-
-                <ImageView
-                    android:id="@+id/image_grid"
-                    android:layout_width="@dimen/main_icons_size"
-                    android:layout_height="@dimen/main_icons_size"
-                    android:layout_marginBottom="8dp"
-                    android:contentDescription="@string/content_description_icons"
-                    android:padding="@dimen/main_icons_padding"
-                    app:srcCompat="@drawable/small_icon_reuse_electricity"
-                    app:tint="@color/blue_800" />
-
-                <TextView
-                    android:id="@+id/text_label_grid_export"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/status_grid_export"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/text_value_grid_export"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="4dp"
-                    android:text="@string/empty_text"
-                    android:textSize="@dimen/main_value_text_size"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/text_unit_grid_export"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/unit_watt"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

@@ -9,6 +9,9 @@ public class SenecEnergyRequestDto extends SenecRequestDto {
     @SerializedName("ENERGY")
     private final Map<String, Object> energy;
 
+    @SerializedName("WALLBOX")
+    private final Map<String, Object> wallbox;
+
     public SenecEnergyRequestDto() {
         energy = new HashMap<>();
         energy.put("STAT_STATE", "");
@@ -21,5 +24,12 @@ public class SenecEnergyRequestDto extends SenecRequestDto {
         energy.put("GUI_BAT_DATA_CURRENT", "");
         energy.put("GUI_CHARGING_INFO", "");
         energy.put("GUI_BOOSTING_INFO", "");
+
+        wallbox = new HashMap<>();
+        wallbox.put("STATE", "");
+        wallbox.put("APPARENT_CHARGING_POWER", "");
+        wallbox.put("L1_CHARGING_CURRENT", "");
+        wallbox.put("L2_CHARGING_CURRENT", "");
+        wallbox.put("L3_CHARGING_CURRENT", "");
     }
 }

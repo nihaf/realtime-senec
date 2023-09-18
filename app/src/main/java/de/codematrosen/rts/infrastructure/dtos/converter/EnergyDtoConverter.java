@@ -1,11 +1,15 @@
 package de.codematrosen.rts.infrastructure.dtos.converter;
 
+import android.content.Context;
+
 import java.util.Optional;
 
 import de.codematrosen.rts.application.converter.BooleanConverter;
 import de.codematrosen.rts.application.converter.HexConverter;
 import de.codematrosen.rts.infrastructure.dtos.EnergyReducedDto;
+import de.codematrosen.rts.infrastructure.dtos.WallboxReducedDto;
 import de.codematrosen.rts.model.Energy;
+import de.codematrosen.rts.model.Wallbox;
 
 public class EnergyDtoConverter {
 
@@ -56,5 +60,23 @@ public class EnergyDtoConverter {
                 .map(Integer::parseInt)
                 .orElse(null));
         return energy;
+    }
+
+    public static Wallbox fromDto(WallboxReducedDto dto) {
+        Wallbox wallbox = new Wallbox();
+        wallbox.setApparentChargingPower(Optional.ofNullable(dto.getApparentChargingPower()[0]).map(HexConverter::convert)
+                .map(Float::parseFloat)
+                .orElse(null));
+        wallbox.setL1ChargingCurrent(Optional.ofNullable(dto.getL1ChargingCurrent()[0]).map(HexConverter::convert)
+                .map(Float::parseFloat)
+                .orElse(null));
+        wallbox.setL2ChargingCurrent(Optional.ofNullable(dto.getL2ChargingCurrent()[0]).map(HexConverter::convert)
+                .map(Float::parseFloat)
+                .orElse(null));
+        wallbox.setL3ChargingCurrent(Optional.ofNullable(dto.getL3ChargingCurrent()[0]).map(HexConverter::convert)
+                .map(Float::parseFloat)
+                .orElse(null));
+        wallbox.setStateId(Optional.ofNullable(dto.getState()[0]).map(HexConverter::convert).orElse(""));
+        return wallbox;
     }
 }

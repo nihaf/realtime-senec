@@ -103,6 +103,11 @@
     <string name="info_label_revision_NSP">Revision NSP:</string>
     <string name="info_label_revision_PU">"Revision PU:</string>
 
+    <string name="info_label_wallbox_state">Wallbox State:</string>
+    <string name="info_label_wallbox_total_power">Wallbox Total Power (VA):</string>
+    <string name="info_label_wallbox_current">Wallbox Current per Phase (A):</string>
+    <string name="wallbox_current_value">%1$s, %2$s, %3$s</string>
+
     <string name="internal_mpp_MppCurrent">Current [A DC]</string>
     <string name="internal_mpp_MppPower">Power [W DC]</string>
     <string name="internal_mpp_MppVoltage">Voltage [V DC]</string>
@@ -255,28 +260,29 @@
         <item>SENEC.Home V3 hybrid</item>
     </string-array>
 
-    <string name="wallbox_state_0xA1">Waiting for EV</string>
-    <string name="wallbox_state_0xB1">EV is asking for charging</string>
-    <string name="wallbox_state_0xB2">EV has the permission to charge</string>
-    <string name="wallbox_state_0xC2">EV is charged</string>
-    <string name="wallbox_state_0xC3">C2 w. reduced current (error F16, F17)</string>
-    <string name="wallbox_state_0xC4">C2 w. reduced current (imbalance F15)</string>
-    <string name="wallbox_state_0xE0">Charging point disabled by enable input EN1 / key lock or for update</string>
-    <string name="wallbox_state_0xE1">production test</string>
-    <string name="wallbox_state_0xE2">EVCC can be programmed</string>
-    <string name="wallbox_state_0xE3">Bus idle</string>
-    <string name="wallbox_state_0xF1">Unintended closed contact (Welding)</string>
-    <string name="wallbox_state_0xF2">Internal error</string>
-    <string name="wallbox_state_0xF3">DC residual current detected</string>
-    <string name="wallbox_state_0xF4">Upstream communication timeout</string>
-    <string name="wallbox_state_0xF5">Lock of socket failed</string>
-    <string name="wallbox_state_0xF6">CS out of range</string>
-    <string name="wallbox_state_0xF7">State D requested by EV</string>
-    <string name="wallbox_state_0xF8">CP out of range</string>
-    <string name="wallbox_state_0xF9">Overcurrent detected</string>
-    <string name="wallbox_state_0xF10">Temperature outside limits</string>
-    <string name="wallbox_state_0xF11">Unintended opened contact</string>
-    <string name="wallbox_state_0xF12">Reserved State</string>
-    <string name="wallbox_state_0xF13">Reserved State</string>
+    <string name="wallbox_state_0">Invalid State</string>
+    <string name="wallbox_state_161">Waiting for EV</string>
+    <string name="wallbox_state_177">EV is asking for charging</string>
+    <string name="wallbox_state_178">EV has the permission to charge</string>
+    <string name="wallbox_state_194">EV is charged</string>
+    <string name="wallbox_state_195">C2 w. reduced current (error F16, F17)</string>
+    <string name="wallbox_state_196">C2 w. reduced current (imbalance F15)</string>
+    <string name="wallbox_state_224">Charging point disabled by enable input EN1 / key lock or for update</string>
+    <string name="wallbox_state_225">production test</string>
+    <string name="wallbox_state_226">EVCC can be programmed</string>
+    <string name="wallbox_state_227">Bus idle</string>
+    <string name="wallbox_state_241">Unintended closed contact (Welding)</string>
+    <string name="wallbox_state_242">Internal error</string>
+    <string name="wallbox_state_243">DC residual current detected</string>
+    <string name="wallbox_state_244">Upstream communication timeout</string>
+    <string name="wallbox_state_245">Lock of socket failed</string>
+    <string name="wallbox_state_246">CS out of range</string>
+    <string name="wallbox_state_247">State D requested by EV</string>
+    <string name="wallbox_state_248">CP out of range</string>
+    <string name="wallbox_state_249">Overcurrent detected</string>
+    <string name="wallbox_state_3856">Temperature outside limits</string>
+    <string name="wallbox_state_3857">Unintended opened contact</string>
+    <string name="wallbox_state_3858">Reserved State</string>
+    <string name="wallbox_state_3859">Reserved State</string>
 
 </resources>

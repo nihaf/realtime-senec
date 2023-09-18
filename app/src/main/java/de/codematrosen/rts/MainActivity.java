@@ -4,6 +4,7 @@ import static android.graphics.PorterDuff.Mode.SRC_IN;
 import static java.util.Objects.requireNonNull;
 import static de.codematrosen.rts.infrastructure.dtos.converter.EnergyDtoConverter.fromDto;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
@@ -21,6 +22,7 @@ import de.codematrosen.rts.infrastructure.SenecServiceGenerator;
 import de.codematrosen.rts.infrastructure.dtos.SenecEnergyRequestDto;
 import de.codematrosen.rts.infrastructure.dtos.SenecEnergyResponseDto;
 import de.codematrosen.rts.model.Energy;
+import de.codematrosen.rts.model.Wallbox;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -44,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView textValueHomeConsumption;
     private TextView textValuePvGeneration;
     private TextView textValueStatus;
+    private TextView textValueWallboxState;
+    private TextView textValueWallboxCurrent;
+    private TextView textValueWallboxTotalPower;
     private int colorRed;
     private int colorGreen;
     private int colorBlue;
@@ -70,8 +75,12 @@ public class MainActivity extends AppCompatActivity {
         textValuePvGeneration = findViewById(R.id.text_value_pv_generation);
         textValueStatus = findViewById(R.id.text_value_status);
 
+        textValueWallboxState = findViewById(R.id.text_value_wallbox_state);
+        textValueWallboxCurrent = findViewById(R.id.text_value_wallbox_current);
+        textValueWallboxTotalPower = findViewById(R.id.text_value_wallbox_total);
+
         // TODO load baseUrl from shared preferences
-        senecService = SenecServiceGenerator.createService("http://192.168.254.56", SenecService.class);
+        senecService = SenecServiceGenerator.createService("https://192.168.254.56", SenecService.class);
         initFetchDataTimer();
     }
 
@@ -99,13 +108,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void fetchSenecEnergyValues() {
-        Call<SenecEnergyResponseDto> call = senecService.getEnergyData(new SenecEnergyRequestDto());
+        Call<SenecEnergyResponseDto> energyCall = senecService.getEnergyData(new SenecEnergyRequestDto());
 
-        call.enqueue(new Callback<SenecEnergyResponseDto>() {
+        energyCall.enqueue(new Callback<SenecEnergyResponseDto>() {
             @Override
             public void onResponse(@NonNull Call<SenecEnergyResponseDto> call, @NonNull Response<SenecEnergyResponseDto> response) {
                 if (response.isSuccessful()) {
-                    Energy energy = fromDto(requireNonNull(response.body()).getEnergy());
+                    SenecEnergyResponseDto responseDto = requireNonNull(response.body());
+                    Energy energy = fromDto(responseDto.getEnergy());
+
                     textValueStatus.setText(getResources().getStringArray(R.array.system_state_array)[energy.getStatState()]);
                     textValueFuelGauge.setText(FORMAT.format(energy.getGuiBatDataFuelCharge()));
                     Float inverterPower = Math.abs(energy.getGuiInverterPower());
@@ -139,6 +150,16 @@ public class MainActivity extends AppCompatActivity {
                         imageGrid.setColorFilter(colorGreen, SRC_IN);
                         textLabelGridPower.setText(getResources().getText(R.string.status_grid_export));
                     }
+
+
+                    Wallbox wallbox = fromDto(responseDto.getWallbox());
+                    int wbStateId = getStringIdentifier(getApplicationContext(), "wallbox_state_" + wallbox.getStateId());
+                    textValueWallboxState.setText(getResources().getText(wbStateId));
+                    textValueWallboxTotalPower.setText(FORMAT.format(wallbox.getApparentChargingPower()));
+                    textValueWallboxCurrent.setText(getString(R.string.wallbox_current_value,
+                            FORMAT.format(wallbox.getL1ChargingCurrent()),
+                            FORMAT.format(wallbox.getL2ChargingCurrent()),
+                            FORMAT.format(wallbox.getL3ChargingCurrent())));
                 } else {
                     Log.w(TAG, "" + response.errorBody());
                 }
@@ -156,5 +177,9 @@ public class MainActivity extends AppCompatActivity {
         public void run() {
             MainActivity.this.fetchSenecEnergyValues();
         }
+    }
+
+    private static int getStringIdentifier(Context context, String name) {
+        return context.getResources().getIdentifier(name, "string", context.getPackageName());
     }
 }

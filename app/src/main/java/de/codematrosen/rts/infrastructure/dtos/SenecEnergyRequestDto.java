@@ -1,13 +1,19 @@
 package de.codematrosen.rts.infrastructure.dtos;
 
+import static java.util.Collections.singletonMap;
+
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
 public class SenecEnergyRequestDto extends SenecRequestDto {
     @SerializedName("ENERGY")
     private final Map<String, Object> energy;
+
+    @SerializedName("PM1OBJ2")
+    private final Map<String, Object> powerMeterSma;
 
     @SerializedName("WALLBOX")
     private final Map<String, Object> wallbox;
@@ -24,6 +30,8 @@ public class SenecEnergyRequestDto extends SenecRequestDto {
         energy.put("GUI_BAT_DATA_CURRENT", "");
         energy.put("GUI_CHARGING_INFO", "");
         energy.put("GUI_BOOSTING_INFO", "");
+
+        powerMeterSma = singletonMap("P_TOTAL", "");
 
         wallbox = new HashMap<>();
         wallbox.put("STATE", "");

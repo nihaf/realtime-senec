@@ -22,6 +22,7 @@ import de.codematrosen.rts.infrastructure.SenecServiceGenerator;
 import de.codematrosen.rts.infrastructure.dtos.SenecEnergyRequestDto;
 import de.codematrosen.rts.infrastructure.dtos.SenecEnergyResponseDto;
 import de.codematrosen.rts.model.Energy;
+import de.codematrosen.rts.model.PowerMeter;
 import de.codematrosen.rts.model.Wallbox;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView textValueFuelGauge;
     private TextView textValueGridPower;
     private TextView textValueHomeConsumption;
-    private TextView textValuePvGeneration;
+    private TextView textValuePvGenerationEast;
+    private TextView textValuePvGenerationWest;
     private TextView textValueStatus;
     private TextView textValueWallboxState;
     private TextView textValueWallboxCurrent;
@@ -72,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
         textValueFuelGauge = findViewById(R.id.text_value_fuel);
         textValueGridPower = findViewById(R.id.text_value_grid_export);
         textValueHomeConsumption = findViewById(R.id.text_value_home_consumption);
-        textValuePvGeneration = findViewById(R.id.text_value_pv_generation);
+        textValuePvGenerationWest = findViewById(R.id.text_value_pv_generation_west);
+        textValuePvGenerationEast = findViewById(R.id.text_value_pv_generation_east);
         textValueStatus = findViewById(R.id.text_value_status);
 
         textValueWallboxState = findViewById(R.id.text_value_wallbox_state);
@@ -116,10 +119,12 @@ public class MainActivity extends AppCompatActivity {
                 if (response.isSuccessful()) {
                     SenecEnergyResponseDto responseDto = requireNonNull(response.body());
                     Energy energy = fromDto(responseDto.getEnergy());
+                    PowerMeter powerMeter = fromDto(responseDto.getPowerMeter2());
 
                     textValueStatus.setText(getResources().getStringArray(R.array.system_state_array)[energy.getStatState()]);
                     textValueFuelGauge.setText(FORMAT.format(energy.getGuiBatDataFuelCharge()));
-                    Float inverterPower = Math.abs(energy.getGuiInverterPower());
+                    Float inverterPowerEast = Math.abs(powerMeter.getTotalPower());
+                    Float inverterPowerWest = Math.abs(energy.getGuiInverterPower() - inverterPowerEast);
                     Float batteryPower = energy.getGuiBatDataPower();
                     Float batteryCurrent = energy.getGuiBatDataCurrent();
                     Float batteryVoltage = energy.getGuiBatDataVoltage();
@@ -131,7 +136,8 @@ public class MainActivity extends AppCompatActivity {
                     textValueBatteryVoltage.setText(FORMAT.format(batteryVoltage));
                     textValueGridPower.setText(FORMAT.format(Math.abs(gridPower)));
                     textValueHomeConsumption.setText(FORMAT.format(housePower));
-                    textValuePvGeneration.setText(FORMAT.format(inverterPower));
+                    textValuePvGenerationEast.setText(FORMAT.format(inverterPowerEast));
+                    textValuePvGenerationWest.setText(FORMAT.format(inverterPowerWest));
 
                     if (energy.getGuiBoostingInfo()) {
                         imageBattery.setColorFilter(colorRed, SRC_IN);

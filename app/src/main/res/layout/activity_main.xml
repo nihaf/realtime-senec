@@ -65,8 +65,7 @@
             android:id="@+id/layout_main_row1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginHorizontal="8dp"
             android:baselineAligned="false"
             android:gravity="bottom|top">
 
@@ -96,14 +95,61 @@
                     android:text="@string/status_pv_generated"
                     android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/text_value_pv_generation"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/east_west"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="4dp"
-                    android:text="@string/empty_text"
-                    android:textSize="@dimen/main_value_text_size"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_label_pv_east"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="@string/status_pv_generated_east"
+                        android:textAlignment="center"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/text_label_pv_west"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="@string/status_pv_generated_west"
+                        android:textAlignment="center"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_pv_east_west"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_value_pv_generation_east"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="4dp"
+                        android:layout_weight="0.5"
+                        android:text="@string/empty_text"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/main_value_text_size"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_value_pv_generation_west"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_marginVertical="4dp"
+                        android:layout_weight="0.5"
+                        android:text="@string/empty_text"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/main_value_text_size"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/text_unit_pv_generation"
@@ -164,7 +210,8 @@
             android:id="@+id/layout_main_row3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="16dp"
             android:baselineAligned="false"
             android:gravity="top"
             android:orientation="horizontal">

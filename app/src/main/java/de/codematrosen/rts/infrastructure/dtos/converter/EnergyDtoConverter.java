@@ -7,8 +7,10 @@ import java.util.Optional;
 import de.codematrosen.rts.application.converter.BooleanConverter;
 import de.codematrosen.rts.application.converter.HexConverter;
 import de.codematrosen.rts.infrastructure.dtos.EnergyReducedDto;
+import de.codematrosen.rts.infrastructure.dtos.Pm1ObjDto;
 import de.codematrosen.rts.infrastructure.dtos.WallboxReducedDto;
 import de.codematrosen.rts.model.Energy;
+import de.codematrosen.rts.model.PowerMeter;
 import de.codematrosen.rts.model.Wallbox;
 
 public class EnergyDtoConverter {
@@ -60,6 +62,10 @@ public class EnergyDtoConverter {
                 .map(Integer::parseInt)
                 .orElse(null));
         return energy;
+    }
+
+    public static PowerMeter fromDto(Pm1ObjDto dto) {
+        return new PowerMeter(Optional.ofNullable(dto.getTotalPower()).map(HexConverter::convert).map(Float::parseFloat).orElse(0.0f));
     }
 
     public static Wallbox fromDto(WallboxReducedDto dto) {

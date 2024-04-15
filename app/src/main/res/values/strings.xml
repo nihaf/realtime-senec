@@ -57,7 +57,7 @@
     <string name="info_label_FeatureSHKW">Solarinvert SHKW:</string>
     <string name="info_label_FeatureSockets">Power-Sockets:</string>
     <string name="info_label_Frequency">Frequency (Hz):</string>
-    <string name="info_label_FuelGauge">Fuel Gauge (%):</string>
+    <string name="info_label_FuelGauge">SoC (%):</string>
     <string name="info_label_Homeconsumption">House Consumption (W):</string>
     <string name="info_label_Inv1Temp">Inverter 1 Temp. (°C):</string>
     <string name="info_label_Inv2Temp">Inverter 2 Temp. (°C):</string>
@@ -135,6 +135,8 @@
     <string name="status_grid_import">Import from Grid</string>
     <string name="status_home_consumption">Home-Consumption</string>
     <string name="status_pv_generated">PV-Generation</string>
+    <string name="status_pv_generated_east">Ost</string>
+    <string name="status_pv_generated_west">West</string>
 
     <string-array name="system_state_array">
         <item>INITIAL-STATE</item>
@@ -236,6 +238,7 @@
         <item>BALANCING</item>
         <item>SAFETY DISCHARGE</item>
         <item>BMS ERROR - MODULE IMBALANCE</item>
+        <item>WAKE-UP CHARGE</item>
     </string-array>
 
     <string-array name="system_type">

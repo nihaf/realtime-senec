@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SenecServiceGenerator {
 
-    private static TrustManager TRUST_ALL_CERTS = new X509TrustManager() {
+    private static final TrustManager TRUST_ALL_CERTS = new X509TrustManager() {
         @Override
         public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) {
         }
@@ -26,7 +26,7 @@ public class SenecServiceGenerator {
 
         @Override
         public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-            return new java.security.cert.X509Certificate[] {};
+            return new java.security.cert.X509Certificate[]{};
         }
     };
     // TODO value from shared preferences
@@ -34,16 +34,16 @@ public class SenecServiceGenerator {
     public static <S> S createService(String baseUrl, Class<S> serviceClass) {
         try {
             SSLContext sslContext = SSLContext.getInstance("SSL");
-        sslContext.init(null, new TrustManager[] { TRUST_ALL_CERTS }, new java.security.SecureRandom());
-        Retrofit.Builder retrofitBuilder = builder(baseUrl);
-        OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
-        httpClientBuilder.sslSocketFactory(sslContext.getSocketFactory(), (X509TrustManager) TRUST_ALL_CERTS);
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE);
-        if (!httpClientBuilder.interceptors().contains(logging)) {
-            httpClientBuilder.addInterceptor(logging);
-            retrofitBuilder.client(httpClientBuilder.build());
-        }
-        return retrofitBuilder.build().create(serviceClass);
+            sslContext.init(null, new TrustManager[]{TRUST_ALL_CERTS}, new java.security.SecureRandom());
+            Retrofit.Builder retrofitBuilder = builder(baseUrl);
+            OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
+            httpClientBuilder.sslSocketFactory(sslContext.getSocketFactory(), (X509TrustManager) TRUST_ALL_CERTS);
+            HttpLoggingInterceptor logging = new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE);
+            if (!httpClientBuilder.interceptors().contains(logging)) {
+                httpClientBuilder.addInterceptor(logging);
+                retrofitBuilder.client(httpClientBuilder.build());
+            }
+            return retrofitBuilder.build().create(serviceClass);
         } catch (NoSuchAlgorithmException | KeyManagementException e) {
             throw new RuntimeException("Failed to load SSL context", e);
         }

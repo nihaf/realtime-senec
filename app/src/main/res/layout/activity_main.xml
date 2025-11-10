@@ -1,77 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text_label_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/info_label_State"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_value_fuel"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text_label_fuel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/info_label_FuelGauge"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_label_status" />
-
-    <TextView
-        android:id="@+id/text_value_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/empty_text"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_value_fuel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
-        app:layout_constraintStart_toEndOf="@+id/text_label_status"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/text_value_fuel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/empty_text"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toEndOf="@+id/text_label_fuel"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77" />
-
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="128dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="@dimen/main_section_spacing">
 
+        <!-- Header Section: Status and Fuel Gauge -->
+        <LinearLayout
+            android:id="@+id/layout_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/main_row_spacing"
+            android:orientation="vertical">
+
+            <!-- Status Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_label_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/info_label_State"
+                    android:textSize="@dimen/text_size_header" />
+
+                <TextView
+                    android:id="@+id/text_value_status"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/empty_text"
+                    android:textSize="@dimen/text_size_header" />
+            </LinearLayout>
+
+            <!-- Fuel Gauge Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_label_fuel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/info_label_FuelGauge"
+                    android:textSize="@dimen/text_size_header" />
+
+                <TextView
+                    android:id="@+id/text_value_fuel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/empty_text"
+                    android:textSize="@dimen/text_size_header" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Main Content Section -->
+        <!-- Row 1: PV Generation and Battery -->
         <LinearLayout
             android:id="@+id/layout_main_row1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
             android:baselineAligned="false"
-            android:gravity="bottom|top">
+            android:orientation="horizontal">
 
+            <!-- Column 1: PV Generation -->
             <LinearLayout
                 android:id="@+id/row1_col1"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -93,46 +103,22 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/status_pv_generated"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_label" />
 
+                <!-- PV East/West Values -->
                 <LinearLayout
-                    android:id="@+id/east_west"
+                    android:id="@+id/layout_pv_east_west"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/text_label_pv_east"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="@string/status_pv_generated_east"
-                        android:textAlignment="center"
-                        android:textSize="11sp" />
-
-                    <TextView
-                        android:id="@+id/text_label_pv_west"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="@string/status_pv_generated_west"
-                        android:textAlignment="center"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layout_pv_east_west"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
                         android:id="@+id/text_value_pv_generation_east"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="2dp"
                         android:layout_marginVertical="4dp"
-                        android:layout_weight="0.5"
+                        android:layout_weight="1"
                         android:text="@string/empty_text"
                         android:textAlignment="center"
                         android:textSize="@dimen/main_value_text_size"
@@ -140,15 +126,41 @@
 
                     <TextView
                         android:id="@+id/text_value_pv_generation_west"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="2dp"
                         android:layout_marginVertical="4dp"
-                        android:layout_weight="0.5"
+                        android:layout_weight="1"
                         android:text="@string/empty_text"
                         android:textAlignment="center"
                         android:textSize="@dimen/main_value_text_size"
                         android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- PV East/West Labels -->
+                <LinearLayout
+                    android:id="@+id/layout_east_west_labels"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_label_pv_east"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/status_pv_generated_east"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/text_size_small" />
+
+                    <TextView
+                        android:id="@+id/text_label_pv_west"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/status_pv_generated_west"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/text_size_small" />
                 </LinearLayout>
 
                 <TextView
@@ -157,12 +169,12 @@
                     android:layout_height="wrap_content"
                     android:text="@string/unit_watt"
                     android:textStyle="bold" />
-
             </LinearLayout>
 
+            <!-- Column 2: Battery -->
             <LinearLayout
-                android:id="@+id/ro1_col2"
-                android:layout_width="match_parent"
+                android:id="@+id/row1_col2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -184,7 +196,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/status_battery_charge"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_label" />
 
                 <TextView
                     android:id="@+id/text_value_battery_charge"
@@ -201,28 +213,27 @@
                     android:layout_height="wrap_content"
                     android:text="@string/unit_watt"
                     android:textStyle="bold" />
-
             </LinearLayout>
-
         </LinearLayout>
 
+        <!-- Row 2: Home Consumption and Grid -->
         <LinearLayout
-            android:id="@+id/layout_main_row3"
+            android:id="@+id/layout_main_row2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="8dp"
-            android:layout_marginVertical="16dp"
+            android:layout_marginVertical="@dimen/main_row_spacing"
             android:baselineAligned="false"
-            android:gravity="top"
             android:orientation="horizontal">
 
+            <!-- Column 1: Home Consumption -->
             <LinearLayout
                 android:id="@+id/row2_col1"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingVertical="8dp">
 
                 <ImageView
                     android:id="@+id/image_home"
@@ -239,7 +250,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/status_home_consumption"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_label" />
 
                 <TextView
                     android:id="@+id/text_value_home_consumption"
@@ -256,16 +267,17 @@
                     android:layout_height="wrap_content"
                     android:text="@string/unit_watt"
                     android:textStyle="bold" />
-
             </LinearLayout>
 
+            <!-- Column 2: Grid -->
             <LinearLayout
                 android:id="@+id/row2_col2"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingVertical="8dp">
 
                 <ImageView
                     android:id="@+id/image_grid"
@@ -282,7 +294,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/status_grid_export"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/text_size_label" />
 
                 <TextView
                     android:id="@+id/text_value_grid_export"
@@ -299,161 +311,59 @@
                     android:layout_height="wrap_content"
                     android:text="@string/unit_watt"
                     android:textStyle="bold" />
-
             </LinearLayout>
         </LinearLayout>
 
+        <!-- Row 3: Battery Details -->
         <LinearLayout
-            android:id="@+id/layout_main_row2"
+            android:id="@+id/layout_main_row3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:orientation="horizontal">
+            android:layout_marginTop="@dimen/main_row_spacing"
+            android:orientation="vertical">
 
+            <!-- Battery Voltage Row -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/text_label_battery_voltage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/info_label_BatteryVoltage" />
 
-                    <TextView
-                        android:id="@+id/text_label_battery_voltage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/info_label_BatteryVoltage"
-                        tools:layout_conversion_absoluteHeight="19dp"
-                        tools:layout_conversion_absoluteWidth="147dp"
-                        tools:layout_editor_absoluteX="96dp"
-                        tools:layout_editor_absoluteY="333dp" />
-
-                    <TextView
-                        android:id="@+id/text_value_battery_voltage"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/empty_text"
-                        tools:layout_conversion_absoluteHeight="19dp"
-                        tools:layout_conversion_absoluteWidth="8dp"
-                        tools:layout_editor_absoluteX="243dp"
-                        tools:layout_editor_absoluteY="333dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/text_label_battery_current"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/info_label_BatteryCurrent" />
-
-                    <TextView
-                        android:id="@+id/text_value_battery_current"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/empty_text" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="16dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/text_label_wallbox_state"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/info_label_wallbox_state"
-                        tools:layout_conversion_absoluteHeight="19dp"
-                        tools:layout_conversion_absoluteWidth="147dp"
-                        tools:layout_editor_absoluteX="96dp"
-                        tools:layout_editor_absoluteY="333dp" />
-
-                    <TextView
-                        android:id="@+id/text_value_wallbox_state"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/empty_text"
-                        android:textStyle="bold"
-                        tools:layout_conversion_absoluteHeight="19dp"
-                        tools:layout_conversion_absoluteWidth="8dp"
-                        tools:layout_editor_absoluteX="243dp"
-                        tools:layout_editor_absoluteY="333dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/text_label_wallbox_current"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/info_label_wallbox_current"
-                        tools:layout_conversion_absoluteHeight="19dp"
-                        tools:layout_conversion_absoluteWidth="147dp"
-                        tools:layout_editor_absoluteX="96dp"
-                        tools:layout_editor_absoluteY="333dp" />
-
-                    <TextView
-                        android:id="@+id/text_value_wallbox_current"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/empty_text"
-                        android:textStyle="bold"
-                        tools:layout_conversion_absoluteHeight="19dp"
-                        tools:layout_conversion_absoluteWidth="8dp"
-                        tools:layout_editor_absoluteX="243dp"
-                        tools:layout_editor_absoluteY="333dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/text_label_wallbox_total"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/info_label_wallbox_total_power"
-                        tools:layout_conversion_absoluteHeight="19dp"
-                        tools:layout_conversion_absoluteWidth="147dp"
-                        tools:layout_editor_absoluteX="96dp"
-                        tools:layout_editor_absoluteY="333dp" />
-
-                    <TextView
-                        android:id="@+id/text_value_wallbox_total"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/empty_text"
-                        android:textStyle="bold"
-                        tools:layout_conversion_absoluteHeight="19dp"
-                        tools:layout_conversion_absoluteWidth="8dp"
-                        tools:layout_editor_absoluteX="243dp"
-                        tools:layout_editor_absoluteY="333dp" />
-                </LinearLayout>
+                <TextView
+                    android:id="@+id/text_value_battery_voltage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/empty_text" />
             </LinearLayout>
 
+            <!-- Battery Current Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_label_battery_current"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/info_label_BatteryCurrent" />
+
+                <TextView
+                    android:id="@+id/text_value_battery_current"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/empty_text" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

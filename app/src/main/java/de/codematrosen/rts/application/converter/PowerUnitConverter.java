@@ -1,7 +1,5 @@
 package de.codematrosen.rts.application.converter;
 
-import java.text.DecimalFormat;
-
 import de.codematrosen.rts.R;
 
 public class PowerUnitConverter {

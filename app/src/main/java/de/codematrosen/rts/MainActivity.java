@@ -4,11 +4,14 @@ import static android.graphics.PorterDuff.Mode.SRC_IN;
 import static java.util.Objects.requireNonNull;
 import static de.codematrosen.rts.infrastructure.dtos.converter.EnergyDtoConverter.fromDto;
 
-import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,13 +20,13 @@ import java.text.DecimalFormat;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import de.codematrosen.rts.application.SenecPreferences;
 import de.codematrosen.rts.infrastructure.SenecService;
 import de.codematrosen.rts.infrastructure.SenecServiceGenerator;
 import de.codematrosen.rts.infrastructure.dtos.SenecEnergyRequestDto;
 import de.codematrosen.rts.infrastructure.dtos.SenecEnergyResponseDto;
 import de.codematrosen.rts.model.Energy;
 import de.codematrosen.rts.model.PowerMeter;
-import de.codematrosen.rts.model.Wallbox;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final DecimalFormat FORMAT = new DecimalFormat("#.#");
+
+    private SenecPreferences senecPreferences;
 
     private Timer fetchDataTimer;
     private SenecService senecService;
@@ -48,9 +53,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView textValuePvGenerationEast;
     private TextView textValuePvGenerationWest;
     private TextView textValueStatus;
-    private TextView textValueWallboxState;
-    private TextView textValueWallboxCurrent;
-    private TextView textValueWallboxTotalPower;
     private int colorRed;
     private int colorGreen;
     private int colorBlue;
@@ -59,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        senecPreferences = new SenecPreferences(this);
+
         colorRed = getResources().getColor(R.color.red, getApplicationContext().getTheme());
         colorGreen = getResources().getColor(R.color.green, getApplicationContext().getTheme());
         colorBlue = getResources().getColor(R.color.blue_800, getApplicationContext().getTheme());
@@ -78,42 +82,70 @@ public class MainActivity extends AppCompatActivity {
         textValuePvGenerationEast = findViewById(R.id.text_value_pv_generation_east);
         textValueStatus = findViewById(R.id.text_value_status);
 
-        textValueWallboxState = findViewById(R.id.text_value_wallbox_state);
-        textValueWallboxCurrent = findViewById(R.id.text_value_wallbox_current);
-        textValueWallboxTotalPower = findViewById(R.id.text_value_wallbox_total);
+        // Check if IP address is configured
+        if (!senecPreferences.isIpConfigured()) {
+            Toast.makeText(this, R.string.error_ip_not_configured, Toast.LENGTH_LONG).show();
+            // Navigate to settings
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return;
+        }
+        String senecUrl = senecPreferences.getSenecUrl();
 
-        // TODO load baseUrl from shared preferences
-        senecService = SenecServiceGenerator.createService("https://192.168.254.56", SenecService.class);
+        senecService = SenecServiceGenerator.createService(senecUrl, SenecService.class);
         initFetchDataTimer();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_settings) {
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
+        senecService = SenecServiceGenerator.createService(senecPreferences.getSenecUrl(), SenecService.class);
         initFetchDataTimer();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        fetchDataTimer.cancel();
+        cancelExistingTimer();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        fetchDataTimer.cancel();
+        cancelExistingTimer();
+    }
+
+    private void cancelExistingTimer() {
+        if (fetchDataTimer != null) {
+            fetchDataTimer.cancel();
+        }
     }
 
     private void initFetchDataTimer() {
         fetchDataTimer = new Timer("refresh-senec-timer");
-        fetchDataTimer.scheduleAtFixedRate(new RefreshFieldsTask(), 0, getResources().getInteger(R.integer.energy_refresh_period_in_ms));
+        fetchDataTimer.schedule(new RefreshFieldsTask(), 0, getResources().getInteger(R.integer.energy_refresh_period_in_ms));
     }
 
     private void fetchSenecEnergyValues() {
         Call<SenecEnergyResponseDto> energyCall = senecService.getEnergyData(new SenecEnergyRequestDto());
 
-        energyCall.enqueue(new Callback<SenecEnergyResponseDto>() {
+        energyCall.enqueue(new Callback<>() {
             @Override
             public void onResponse(@NonNull Call<SenecEnergyResponseDto> call, @NonNull Response<SenecEnergyResponseDto> response) {
                 if (response.isSuccessful()) {
@@ -156,18 +188,8 @@ public class MainActivity extends AppCompatActivity {
                         imageGrid.setColorFilter(colorGreen, SRC_IN);
                         textLabelGridPower.setText(getResources().getText(R.string.status_grid_export));
                     }
-
-
-                    Wallbox wallbox = fromDto(responseDto.getWallbox());
-                    int wbStateId = getStringIdentifier(getApplicationContext(), "wallbox_state_" + wallbox.getStateId());
-                    textValueWallboxState.setText(getResources().getText(wbStateId));
-                    textValueWallboxTotalPower.setText(FORMAT.format(wallbox.getApparentChargingPower()));
-                    textValueWallboxCurrent.setText(getString(R.string.wallbox_current_value,
-                            FORMAT.format(wallbox.getL1ChargingCurrent()),
-                            FORMAT.format(wallbox.getL2ChargingCurrent()),
-                            FORMAT.format(wallbox.getL3ChargingCurrent())));
                 } else {
-                    Log.w(TAG, "" + response.errorBody());
+                    Log.w(TAG, "Error fetching data: " + response.message() + ", "+ response.errorBody());
                 }
             }
 
@@ -183,9 +205,5 @@ public class MainActivity extends AppCompatActivity {
         public void run() {
             MainActivity.this.fetchSenecEnergyValues();
         }
-    }
-
-    private static int getStringIdentifier(Context context, String name) {
-        return context.getResources().getIdentifier(name, "string", context.getPackageName());
     }
 }

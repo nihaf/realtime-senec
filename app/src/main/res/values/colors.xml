@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
     <color name="blue_800">#113285</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
@@ -10,5 +7,152 @@
     <color name="white">#FFFFFFFF</color>
     <color name="red">#FF1C1C</color>
     <color name="green">#3FB501</color>
+
+    <!-- ============================================ -->
+    <!-- PALETTE 1: SENEC Blue (from logo #009)       -->
+    <!-- Primary: Strong Blue, Energy & Technology     -->
+    <!-- ============================================ -->
+
+    <!-- Primary Colors -->
+    <color name="senec_blue_50">#E3F2FD</color>      <!-- Lightest blue -->
+    <color name="senec_blue_100">#BBDEFB</color>     <!-- Very light blue -->
+    <color name="senec_blue_200">#90CAF9</color>     <!-- Light blue -->
+    <color name="senec_blue_300">#64B5F6</color>     <!-- Medium light blue -->
+    <color name="senec_blue_400">#42A5F5</color>     <!-- Medium blue -->
+    <color name="senec_blue_500">#0099CC</color>     <!-- Primary blue (SENEC brand) -->
+    <color name="senec_blue_600">#0077AA</color>     <!-- Dark blue -->
+    <color name="senec_blue_700">#005588</color>     <!-- Darker blue -->
+    <color name="senec_blue_800">#003366</color>     <!-- Very dark blue -->
+    <color name="senec_blue_900">#001144</color>     <!-- Darkest blue -->
+
+    <!-- Complementary (Orange - opposite on color wheel) -->
+    <color name="senec_orange_200">#FFCC80</color>   <!-- Light orange -->
+    <color name="senec_orange_500">#FF9933</color>   <!-- Orange accent -->
+    <color name="senec_orange_700">#F57C00</color>   <!-- Dark orange -->
+
+    <!-- Analogous Colors (Adjacent on color wheel: Teal/Cyan) -->
+    <color name="senec_teal_200">#80DEEA</color>     <!-- Light teal -->
+    <color name="senec_teal_500">#00BCD4</color>     <!-- Teal accent -->
+    <color name="senec_teal_700">#00838F</color>     <!-- Dark teal -->
+
+    <!-- Triadic Colors (120° apart: Green & Red) -->
+    <color name="senec_green_200">#A5D6A7</color>    <!-- Light green -->
+    <color name="senec_green_500">#4CAF50</color>    <!-- Green (for success/energy) -->
+    <color name="senec_green_700">#2E7D32</color>    <!-- Dark green -->
+
+    <color name="senec_red_200">#EF9A9A</color>      <!-- Light red -->
+    <color name="senec_red_500">#F44336</color>      <!-- Red (for alerts) -->
+    <color name="senec_red_700">#C62828</color>      <!-- Dark red -->
+
+
+    <!-- ============================================ -->
+    <!-- PALETTE 2: Purple Theme (Modern & Premium)   -->
+    <!-- Primary: Purple, Sophistication & Innovation  -->
+    <!-- ============================================ -->
+
+    <!-- Primary Colors -->
+    <color name="purple_50">#F3E5F5</color>          <!-- Lightest purple -->
+    <color name="purple_100">#E1BEE7</color>         <!-- Very light purple -->
+    <color name="purple_200">#CE93D8</color>         <!-- Light purple -->
+    <color name="purple_300">#BA68C8</color>         <!-- Medium light purple -->
+    <color name="purple_400">#AB47BC</color>         <!-- Medium purple -->
+    <color name="purple_500">#9C27B0</color>         <!-- Primary purple -->
+    <color name="purple_600">#8E24AA</color>         <!-- Dark purple -->
+    <color name="purple_700">#7B1FA2</color>         <!-- Darker purple -->
+    <color name="purple_800">#6A1B9A</color>         <!-- Very dark purple -->
+    <color name="purple_900">#4A148C</color>         <!-- Darkest purple -->
+
+    <!-- Complementary (Yellow-Green) -->
+    <color name="purple_comp_200">#DCE775</color>    <!-- Light yellow-green -->
+    <color name="purple_comp_500">#CDDC39</color>    <!-- Yellow-green accent -->
+    <color name="purple_comp_700">#9E9D24</color>    <!-- Dark yellow-green -->
+
+    <!-- Analogous Colors (Blue-Purple & Red-Purple) -->
+    <color name="purple_analog_blue_500">#673AB7</color>   <!-- Deep purple -->
+    <color name="purple_analog_red_500">#E91E63</color>    <!-- Pink -->
+
+    <!-- Triadic Colors (Orange & Teal) -->
+    <color name="purple_triadic_orange_500">#FF9800</color> <!-- Orange -->
+    <color name="purple_triadic_teal_500">#009688</color>   <!-- Teal -->
+
+
+    <!-- ============================================ -->
+    <!-- PALETTE 3: Dark Blue Theme (Professional)    -->
+    <!-- Primary: Navy/Dark Blue, Trust & Stability   -->
+    <!-- ============================================ -->
+
+    <!-- Primary Colors -->
+    <color name="navy_50">#E8EAF6</color>            <!-- Lightest navy -->
+    <color name="navy_100">#C5CAE9</color>           <!-- Very light navy -->
+    <color name="navy_200">#9FA8DA</color>           <!-- Light navy -->
+    <color name="navy_300">#7986CB</color>           <!-- Medium light navy -->
+    <color name="navy_400">#5C6BC0</color>           <!-- Medium navy -->
+    <color name="navy_500">#3F51B5</color>           <!-- Primary navy (Indigo) -->
+    <color name="navy_600">#3949AB</color>           <!-- Dark navy -->
+    <color name="navy_700">#303F9F</color>           <!-- Darker navy -->
+    <color name="navy_800">#283593</color>           <!-- Very dark navy -->
+    <color name="navy_900">#1A237E</color>           <!-- Darkest navy -->
+
+    <!-- Complementary (Yellow-Orange) -->
+    <color name="navy_comp_200">#FFD54F</color>      <!-- Light yellow -->
+    <color name="navy_comp_500">#FFC107</color>      <!-- Amber accent -->
+    <color name="navy_comp_700">#FFA000</color>      <!-- Dark amber -->
+
+    <!-- Analogous Colors (Blue & Purple) -->
+    <color name="navy_analog_blue_500">#2196F3</color>     <!-- Blue -->
+    <color name="navy_analog_purple_500">#673AB7</color>   <!-- Deep purple -->
+
+    <!-- Triadic Colors (Red & Teal) -->
+    <color name="navy_triadic_red_500">#E53935</color>     <!-- Red -->
+    <color name="navy_triadic_teal_500">#00BCD4</color>    <!-- Cyan -->
+
+
+    <!-- ============================================ -->
+    <!-- Neutral & System Colors                      -->
+    <!-- ============================================ -->
+
+    <!-- Grays -->
+    <color name="gray_50">#FAFAFA</color>
+    <color name="gray_100">#F5F5F5</color>
+    <color name="gray_200">#EEEEEE</color>
+    <color name="gray_300">#E0E0E0</color>
+    <color name="gray_400">#BDBDBD</color>
+    <color name="gray_500">#9E9E9E</color>
+    <color name="gray_600">#757575</color>
+    <color name="gray_700">#616161</color>
+    <color name="gray_800">#424242</color>
+    <color name="gray_900">#212121</color>
+
+    <!-- Semantic Colors (Status) -->
+    <color name="success">#4CAF50</color>            <!-- Green for success -->
+    <color name="warning">#FF9800</color>            <!-- Orange for warnings -->
+    <color name="error">#F44336</color>              <!-- Red for errors -->
+    <color name="info">#2196F3</color>               <!-- Blue for info -->
+
+    <!-- Energy-specific Colors -->
+    <color name="solar_yellow">#FDD835</color>       <!-- Solar energy -->
+    <color name="battery_green">#66BB6A</color>      <!-- Battery charging -->
+    <color name="grid_blue">#42A5F5</color>          <!-- Grid power -->
+    <color name="consumption_orange">#FFA726</color> <!-- Energy consumption -->
+
+
+    <!-- ============================================ -->
+    <!-- Theme Aliases (Use these in themes)          -->
+    <!-- Default: SENEC Blue Theme                    -->
+    <!-- ============================================ -->
+
+    <color name="primary">@color/senec_blue_500</color>
+    <color name="primary_variant">@color/senec_blue_700</color>
+    <color name="secondary">@color/senec_teal_500</color>
+    <color name="secondary_variant">@color/senec_teal_700</color>
+    <color name="accent">@color/senec_orange_500</color>
+
+    <color name="background">#FFFFFF</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_secondary">#000000</color>
+    <color name="on_background">#000000</color>
+    <color name="on_surface">#000000</color>
+    <color name="on_error">#FFFFFF</color>
 
 </resources>

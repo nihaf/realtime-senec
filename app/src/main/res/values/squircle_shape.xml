@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        This style defines the squircle shape for Material Components.
+        A 'Cut' corner family with a radius applied to all corners creates a smooth,
+        squircle-like effect that is modern and distinct.
+
+        Using a large percentage (e.g., 50%) of the height/width for the radius
+        on a button gives it a continuous curve.
+    -->
+    <style name="ShapeAppearance.RealtimeSenecApp.Squircle" parent="ShapeAppearance.Material3.SmallComponent">
+        <!-- Set corner size to 24dp for consistency, or use a percentage for fluid shapes -->
+        <item name="cornerSize">24dp</item>
+        <!-- Use the 'Cut' family (or 'Rounded') to create the specific tension -->
+        <item name="cornerFamily">rounded</item>
+
+        <!-- For a true, mathematically precise squircle, one would use a custom ShapeModel
+             via code, but this corner treatment gets very close and is easy to apply in XML. -->
+    </style>
+
+    <!-- Style for the actual button, applying the squircle shape -->
+    <style name="Widget.RealtimeSenecApp.Button.Squircle" parent="Widget.Material3.Button">
+        <!-- Apply the custom shape appearance to the button -->
+        <item name="shapeAppearance">@style/ShapeAppearance.RealtimeSenecApp.Squircle</item>
+        <!-- Enhance the cozy feel with a subtle elevation -->
+        <item name="android:elevation">4dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+</resources>
+

@@ -5,6 +5,6 @@
         android:id="@+id/action_settings"
         android:icon="@drawable/baseline_settings_32"
         android:title="@string/action_settings"
-        app:iconTint="?attr/colorOnPrimary"
+        android:iconTint="@color/black"
         app:showAsAction="ifRoom" />
 </menu>

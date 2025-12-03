@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         colorRed = getResources().getColor(R.color.red, getApplicationContext().getTheme());
         colorGreen = getResources().getColor(R.color.green, getApplicationContext().getTheme());
-        colorBlue = getResources().getColor(R.color.blue_800, getApplicationContext().getTheme());
+        colorBlue = getResources().getColor(R.color.primary_sage_500, getApplicationContext().getTheme());
 
         imageBattery = findViewById(R.id.image_battery);
         imageGrid = findViewById(R.id.image_grid);

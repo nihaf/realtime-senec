@@ -32,10 +32,11 @@ android {
 
 dependencies {
 
+    implementation 'app.juky:squircleview:0.6.1'
     implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'com.google.android.material:material:1.13.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
-    implementation 'com.squareup.okhttp3:logging-interceptor:5.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.3.2'
 	compileOnly 'org.projectlombok:lombok:1.18.42'
 	annotationProcessor 'org.projectlombok:lombok:1.18.42'
 

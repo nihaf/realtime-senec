@@ -2,19 +2,18 @@ package de.codematrosen.rts;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import app.juky.squircleview.views.SquircleButton;
 import de.codematrosen.rts.application.SenecPreferences;
 
 public class SettingsActivity extends AppCompatActivity {
 
     private SenecPreferences senecPreferences;
     private EditText ipAddressInput;
-    private Button saveButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         ipAddressInput = findViewById(R.id.ip_address_input);
-        saveButton = findViewById(R.id.save_button);
+        SquircleButton saveButton = findViewById(R.id.save_button);
 
         // Load current IP address
         loadSettings();

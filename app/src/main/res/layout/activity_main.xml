@@ -10,29 +10,30 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/background_paper"
         android:orientation="vertical"
-        android:padding="@dimen/main_section_spacing">
+        android:padding="@dimen/spacing_large">
 
         <!-- Header Section: Status and Fuel Gauge -->
         <LinearLayout
             android:id="@+id/layout_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/main_row_spacing"
+            android:layout_marginBottom="@dimen/spacing_large"
             android:orientation="vertical">
 
             <!-- Status Row -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="@dimen/spacing_medium"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/text_label_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/spacing_medium"
                     android:text="@string/info_label_State"
                     android:textSize="@dimen/text_size_header" />
 
@@ -55,7 +56,7 @@
                     android:id="@+id/text_label_fuel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/spacing_medium"
                     android:text="@string/info_label_FuelGauge"
                     android:textSize="@dimen/text_size_header" />
 
@@ -86,17 +87,30 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingVertical="8dp">
+                android:paddingVertical="@dimen/spacing_medium">
 
-                <ImageView
-                    android:id="@+id/image_pv_generation"
-                    android:layout_width="@dimen/main_icons_size"
-                    android:layout_height="@dimen/main_icons_size"
-                    android:layout_marginBottom="8dp"
-                    android:contentDescription="@string/content_description_icons"
-                    android:padding="@dimen/main_icons_padding"
-                    app:srcCompat="@drawable/small_icon_solar_panel"
-                    app:tint="@color/blue_800" />
+                <app.juky.squircleview.views.SquircleConstraintLayout
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:elevation="@dimen/squircle_elevation"
+                    app:squircle_background_color="@color/gray_100"
+                    app:squircle_border_color="@color/gray_400"
+                    app:squircle_border_width="@dimen/squircle_border_width">
+
+                    <ImageView
+                        android:id="@+id/image_pv_generation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/icon_padding"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/small_icon_solar_panel"
+                        app:tint="@color/primary_sage_500" />
+
+                </app.juky.squircleview.views.SquircleConstraintLayout>
 
                 <TextView
                     android:id="@+id/text_label_pv_generation"
@@ -116,24 +130,24 @@
                         android:id="@+id/text_value_pv_generation_east"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="2dp"
-                        android:layout_marginVertical="4dp"
+                        android:layout_marginHorizontal="@dimen/spacing_small"
+                        android:layout_marginVertical="@dimen/spacing_small"
                         android:layout_weight="1"
                         android:text="@string/empty_text"
                         android:textAlignment="center"
-                        android:textSize="@dimen/main_value_text_size"
+                        android:textSize="@dimen/text_size_value"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/text_value_pv_generation_west"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="2dp"
-                        android:layout_marginVertical="4dp"
+                        android:layout_marginHorizontal="@dimen/spacing_small"
+                        android:layout_marginVertical="@dimen/spacing_small"
                         android:layout_weight="1"
                         android:text="@string/empty_text"
                         android:textAlignment="center"
-                        android:textSize="@dimen/main_value_text_size"
+                        android:textSize="@dimen/text_size_value"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -179,17 +193,29 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingVertical="8dp">
+                android:paddingVertical="@dimen/spacing_medium">
 
-                <ImageView
-                    android:id="@+id/image_battery"
-                    android:layout_width="@dimen/main_icons_size"
-                    android:layout_height="@dimen/main_icons_size"
-                    android:layout_marginBottom="8dp"
-                    android:contentDescription="@string/content_description_icons"
-                    android:padding="@dimen/main_icons_padding"
-                    app:srcCompat="@drawable/small_icon_battery"
-                    app:tint="@color/blue_800" />
+                <app.juky.squircleview.views.SquircleConstraintLayout
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:elevation="@dimen/squircle_elevation"
+                    app:squircle_background_color="@color/gray_100"
+                    app:squircle_border_color="@color/gray_400"
+                    app:squircle_border_width="@dimen/squircle_border_width">
+
+                    <ImageView
+                        android:id="@+id/image_battery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/icon_padding"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/small_icon_battery"
+                        app:tint="@color/primary_sage_500" />
+                </app.juky.squircleview.views.SquircleConstraintLayout>
 
                 <TextView
                     android:id="@+id/text_label_battery_charge"
@@ -202,9 +228,9 @@
                     android:id="@+id/text_value_battery_charge"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="4dp"
+                    android:layout_marginVertical="@dimen/spacing_small"
                     android:text="@string/empty_text"
-                    android:textSize="@dimen/main_value_text_size"
+                    android:textSize="@dimen/text_size_value"
                     android:textStyle="bold" />
 
                 <TextView
@@ -221,7 +247,7 @@
             android:id="@+id/layout_main_row2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/main_row_spacing"
+            android:layout_marginVertical="@dimen/spacing_large"
             android:baselineAligned="false"
             android:orientation="horizontal">
 
@@ -233,17 +259,29 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingVertical="8dp">
+                android:paddingVertical="@dimen/spacing_medium">
 
-                <ImageView
-                    android:id="@+id/image_home"
-                    android:layout_width="@dimen/main_icons_size"
-                    android:layout_height="@dimen/main_icons_size"
-                    android:layout_marginBottom="8dp"
-                    android:contentDescription="@string/content_description_icons"
-                    android:padding="@dimen/main_icons_padding"
-                    app:srcCompat="@drawable/small_icon_house"
-                    app:tint="@color/blue_800" />
+                <app.juky.squircleview.views.SquircleConstraintLayout
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:elevation="@dimen/squircle_elevation"
+                    app:squircle_background_color="@color/gray_100"
+                    app:squircle_border_color="@color/gray_400"
+                    app:squircle_border_width="@dimen/squircle_border_width">
+
+                    <ImageView
+                        android:id="@+id/image_home"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/icon_padding"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/small_icon_house"
+                        app:tint="@color/primary_sage_500" />
+                </app.juky.squircleview.views.SquircleConstraintLayout>
 
                 <TextView
                     android:id="@+id/text_label_home_consumption"
@@ -256,9 +294,9 @@
                     android:id="@+id/text_value_home_consumption"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="4dp"
+                    android:layout_marginVertical="@dimen/spacing_small"
                     android:text="@string/empty_text"
-                    android:textSize="@dimen/main_value_text_size"
+                    android:textSize="@dimen/text_size_value"
                     android:textStyle="bold" />
 
                 <TextView
@@ -277,17 +315,29 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:paddingVertical="8dp">
+                android:paddingVertical="@dimen/spacing_medium">
 
-                <ImageView
-                    android:id="@+id/image_grid"
-                    android:layout_width="@dimen/main_icons_size"
-                    android:layout_height="@dimen/main_icons_size"
-                    android:layout_marginBottom="8dp"
-                    android:contentDescription="@string/content_description_icons"
-                    android:padding="@dimen/main_icons_padding"
-                    app:srcCompat="@drawable/small_icon_reuse_electricity"
-                    app:tint="@color/blue_800" />
+                <app.juky.squircleview.views.SquircleConstraintLayout
+                    android:layout_width="@dimen/icon_size"
+                    android:layout_height="@dimen/icon_size"
+                    android:layout_marginBottom="@dimen/spacing_medium"
+                    android:elevation="@dimen/squircle_elevation"
+                    app:squircle_background_color="@color/gray_100"
+                    app:squircle_border_color="@color/gray_400"
+                    app:squircle_border_width="@dimen/squircle_border_width">
+
+                    <ImageView
+                        android:id="@+id/image_grid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/icon_padding"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/small_icon_reuse_electricity"
+                        app:tint="@color/primary_sage_500" />
+                </app.juky.squircleview.views.SquircleConstraintLayout>
 
                 <TextView
                     android:id="@+id/text_label_grid_export"
@@ -300,9 +350,9 @@
                     android:id="@+id/text_value_grid_export"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="4dp"
+                    android:layout_marginVertical="@dimen/spacing_small"
                     android:text="@string/empty_text"
-                    android:textSize="@dimen/main_value_text_size"
+                    android:textSize="@dimen/text_size_value"
                     android:textStyle="bold" />
 
                 <TextView
@@ -319,21 +369,21 @@
             android:id="@+id/layout_main_row3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/main_row_spacing"
+            android:layout_marginTop="@dimen/spacing_large"
             android:orientation="vertical">
 
             <!-- Battery Voltage Row -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
+                android:layout_marginBottom="@dimen/spacing_small"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/text_label_battery_voltage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/spacing_medium"
                     android:text="@string/info_label_BatteryVoltage" />
 
                 <TextView
@@ -354,7 +404,7 @@
                     android:id="@+id/text_label_battery_current"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="@dimen/spacing_medium"
                     android:text="@string/info_label_BatteryCurrent" />
 
                 <TextView

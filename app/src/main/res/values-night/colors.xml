@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+        THEME: Suburban Modern (Night Mode)
+        CONCEPT: Deep Charcoal, Soft Sage, Luminous Amber.
+    -->
+
+    <!--
+        Primary Brand Colors (Night)
+        Note: In dark mode, we use the lighter '200' variants as the main color
+        for better visibility against dark backgrounds.
+    -->
+    <color name="primary_sage_200">#A5C4B7</color> <!-- Main usage in dark mode -->
+    <color name="primary_sage_500">#6A8E7F</color>
+    <color name="primary_sage_700">#456357</color>
+
+    <!-- Secondary Accents (Night) -->
+    <color name="energy_amber_200">#F2D096</color> <!-- Main usage in dark mode -->
+    <color name="energy_amber_500">#E09F3E</color>
+    <color name="energy_amber_700">#BF7B19</color>
+
+    <!-- Alert (Softer terracotta for dark mode) -->
+    <color name="alert_terracotta">#E57373</color>
+
+    <!-- Backgrounds & Surfaces (Dark Neutrals) -->
+    <!-- 'Deep Charcoal' with a tiny hint of warmth, not pure black -->
+    <color name="background_paper">#1E201F</color>
+    <color name="surface_card">#2C2E2D</color>
+    <color name="surface_subtle">#3E4140</color>
+
+    <!-- Typography (Inverted for dark mode) -->
+    <color name="text_primary">#E3E2E6</color>  <!-- ~90% White -->
+    <color name="text_secondary">#C4C7C5</color> <!-- ~70% White -->
+    <color name="text_tertiary">#8E918F</color>
+
+    <!-- UI Elements -->
+    <color name="divider">#49454F</color>
+    <color name="white">#FF000000</color> <!-- Inverted 'white' logic often maps to dark for icons on light areas, but usually kept literal. -->
+    <color name="black">#FFFFFFFF</color>
+
+</resources>

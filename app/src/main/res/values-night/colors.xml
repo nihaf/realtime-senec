@@ -35,7 +35,18 @@
 
     <!-- UI Elements -->
     <color name="divider">#49454F</color>
-    <color name="white">#FF000000</color> <!-- Inverted 'white' logic often maps to dark for icons on light areas, but usually kept literal. -->
+    <color name="white">#000000</color> <!-- Inverted 'white' logic often maps to dark for icons on light areas, but usually kept literal. -->
     <color name="black">#FFFFFFFF</color>
+    <!-- Grays (Dark Theme) -->
+    <color name="gray_50">#2A2C2B</color>
+    <color name="gray_100">#313433</color>
+    <color name="gray_200">#49454F</color>
+    <color name="gray_300">#636E72</color>
+    <color name="gray_400">#8E918F</color>
+    <color name="gray_500">#B2BEC3</color>
+    <color name="gray_600">#C4C7C5</color>
+    <color name="gray_700">#E3E2E6</color>
+    <color name="gray_800">#F5F5F5</color>
+    <color name="gray_900">#FFFFFF</color>
 
 </resources>

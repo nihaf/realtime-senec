@@ -313,4 +313,15 @@
     <string name="solar_detail_mpp_total">Current Power Generation</string>
     <string name="solar_detail_error">Failed to load solar data</string>
 
+    <!-- Battery Detail Activity -->
+    <string name="battery_detail_title">Battery Details</string>
+    <string name="battery_detail_status">Status</string>
+    <string name="battery_detail_values">Battery Values</string>
+    <string name="battery_detail_state">Status</string>
+    <string name="battery_detail_power">Power</string>
+    <string name="battery_detail_voltage">Voltage</string>
+    <string name="battery_detail_current">Current</string>
+    <string name="battery_detail_soc">State of Charge</string>
+    <string name="battery_detail_error">Failed to load battery data</string>
+
 </resources>

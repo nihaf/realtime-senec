@@ -37,8 +37,8 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private static final DecimalFormat FORMAT_WATT = new DecimalFormat("#.0");
-    private static final DecimalFormat FORMAT_KILOWATT = new DecimalFormat("#.00");
+    private static final DecimalFormat FORMAT_KILOWATT = new DecimalFormat("0.00");
+    static final DecimalFormat FORMAT_WATT = new DecimalFormat("0.0");
 
     private SenecPreferences senecPreferences;
 
@@ -50,9 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private CircularProgressIndicator batteryProgressIndicator;
     private TextView textLabelBatteryPower;
     private TextView textLabelGridPower;
-    private TextView textValueBatteryCurrent;
     private TextView textValueBatteryPower;
-    private TextView textValueBatteryVoltage;
     private TextView textBatterySoc;
     private TextView textValueGridPower;
     private TextView textValueHomeConsumption;
@@ -87,9 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
         textLabelBatteryPower = findViewById(R.id.text_label_battery_charge);
         textLabelGridPower = findViewById(R.id.text_label_grid_export);
-        textValueBatteryCurrent = findViewById(R.id.text_value_battery_current);
         textValueBatteryPower = findViewById(R.id.text_value_battery_charge);
-        textValueBatteryVoltage = findViewById(R.id.text_value_battery_voltage);
         textBatterySoc = findViewById(R.id.text_battery_soc);
         textValueGridPower = findViewById(R.id.text_value_grid_export);
         textValueHomeConsumption = findViewById(R.id.text_value_home_consumption);
@@ -102,10 +98,10 @@ public class MainActivity extends AppCompatActivity {
         textUnitGridExport = findViewById(R.id.text_unit_grid_export);
 
         // Set up click listener for PV generation squircle
-        findViewById(R.id.squircle_pv_generation).setOnClickListener(v -> {
-            Intent intent = new Intent(this, SolarDetailActivity.class);
-            startActivity(intent);
-        });
+        findViewById(R.id.squircle_pv_generation).setOnClickListener(v -> startActivity(new Intent(this, SolarDetailActivity.class)));
+
+        // Set up click listener for Battery squircle
+        findViewById(R.id.squircle_battery).setOnClickListener(v -> startActivity(new Intent(this, BatteryDetailActivity.class)));
 
         setUnits();
 
@@ -209,9 +205,7 @@ public class MainActivity extends AppCompatActivity {
                     Float housePower = energy.getGuiHousePow();
                     Float gridPower = energy.getGuiGridPow();
 
-                    textValueBatteryCurrent.setText(format.format(batteryCurrent));
                     textValueBatteryPower.setText(format.format(Math.abs(batteryPower) / divisor));
-                    textValueBatteryVoltage.setText(format.format(batteryVoltage));
                     textValueGridPower.setText(format.format(Math.abs(gridPower) / divisor));
                     textValueHomeConsumption.setText(format.format(housePower / divisor));
                     textValuePvGenerationEast.setText(format.format(inverterPowerEast / divisor));
@@ -242,7 +236,7 @@ public class MainActivity extends AppCompatActivity {
                         gridCaretAnimation.startAnimation();
                     }
                 } else {
-                    Log.w(TAG, "Error fetching data: " + response.message() + ", "+ response.errorBody());
+                    Log.w(TAG, "Error fetching data: " + response.message() + ", " + response.errorBody());
                 }
             }
 

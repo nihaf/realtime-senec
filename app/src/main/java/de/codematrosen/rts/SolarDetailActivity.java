@@ -1,5 +1,7 @@
 package de.codematrosen.rts;
 
+import static de.codematrosen.rts.MainActivity.FORMAT_WATT;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -36,8 +38,6 @@ import retrofit2.Response;
 public class SolarDetailActivity extends AppCompatActivity {
 
     private static final String TAG = SolarDetailActivity.class.getSimpleName();
-    private static final DecimalFormat FORMAT_WATT = new DecimalFormat("#.0");
-
     private SenecService senecService;
     private Timer refreshTimer;
     private boolean isFirstLoad = true;

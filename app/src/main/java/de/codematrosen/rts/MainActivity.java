@@ -16,6 +16,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.progressindicator.CircularProgressIndicator;
+
 import java.text.DecimalFormat;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -42,12 +44,13 @@ public class MainActivity extends AppCompatActivity {
     private SenecService senecService;
     private ImageView imageBattery;
     private ImageView imageGrid;
+    private CircularProgressIndicator batteryProgressIndicator;
     private TextView textLabelBatteryPower;
     private TextView textLabelGridPower;
     private TextView textValueBatteryCurrent;
     private TextView textValueBatteryPower;
     private TextView textValueBatteryVoltage;
-    private TextView textValueFuelGauge;
+    private TextView textBatterySoc;
     private TextView textValueGridPower;
     private TextView textValueHomeConsumption;
     private TextView textValuePvGenerationEast;
@@ -75,13 +78,14 @@ public class MainActivity extends AppCompatActivity {
 
         imageBattery = findViewById(R.id.image_battery);
         imageGrid = findViewById(R.id.image_grid);
+        batteryProgressIndicator = findViewById(R.id.battery_progress_indicator);
 
         textLabelBatteryPower = findViewById(R.id.text_label_battery_charge);
         textLabelGridPower = findViewById(R.id.text_label_grid_export);
         textValueBatteryCurrent = findViewById(R.id.text_value_battery_current);
         textValueBatteryPower = findViewById(R.id.text_value_battery_charge);
         textValueBatteryVoltage = findViewById(R.id.text_value_battery_voltage);
-        textValueFuelGauge = findViewById(R.id.text_value_fuel);
+        textBatterySoc = findViewById(R.id.text_battery_soc);
         textValueGridPower = findViewById(R.id.text_value_grid_export);
         textValueHomeConsumption = findViewById(R.id.text_value_home_consumption);
         textValuePvGenerationWest = findViewById(R.id.text_value_pv_generation_west);
@@ -182,7 +186,9 @@ public class MainActivity extends AppCompatActivity {
                     PowerMeter powerMeter = fromDto(responseDto.getPowerMeter2());
 
                     textValueStatus.setText(getResources().getStringArray(R.array.system_state_array)[energy.getStatState()]);
-                    textValueFuelGauge.setText(FORMAT.format(energy.getGuiBatDataFuelCharge()));
+                    int fuelCharge = energy.getGuiBatDataFuelCharge().intValue();
+                    textBatterySoc.setText(Integer.toString(fuelCharge));
+                    batteryProgressIndicator.setProgress(fuelCharge);
                     Float inverterPowerEast = Math.abs(powerMeter.getTotalPower());
                     float inverterPowerWest = Math.abs(energy.getGuiInverterPower() - inverterPowerEast);
                     Float batteryPower = energy.getGuiBatDataPower();

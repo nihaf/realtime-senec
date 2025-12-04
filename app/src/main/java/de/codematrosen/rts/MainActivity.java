@@ -29,6 +29,7 @@ import de.codematrosen.rts.infrastructure.dtos.SenecEnergyRequestDto;
 import de.codematrosen.rts.infrastructure.dtos.SenecEnergyResponseDto;
 import de.codematrosen.rts.model.Energy;
 import de.codematrosen.rts.model.PowerMeter;
+import de.codematrosen.rts.ui.CaretAnimationView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private SenecService senecService;
     private ImageView imageBattery;
     private ImageView imageGrid;
+    private CaretAnimationView gridCaretAnimation;
     private CircularProgressIndicator batteryProgressIndicator;
     private TextView textLabelBatteryPower;
     private TextView textLabelGridPower;
@@ -80,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         imageBattery = findViewById(R.id.image_battery);
         imageGrid = findViewById(R.id.image_grid);
+        gridCaretAnimation = findViewById(R.id.grid_caret_animation);
         batteryProgressIndicator = findViewById(R.id.battery_progress_indicator);
 
         textLabelBatteryPower = findViewById(R.id.text_label_battery_charge);
@@ -221,9 +224,16 @@ public class MainActivity extends AppCompatActivity {
                     if (gridPower > 0.0f) {
                         imageGrid.setColorFilter(colorRed, SRC_IN);
                         textLabelGridPower.setText(getResources().getText(R.string.status_grid_import));
+                        // Animate carets flowing LEFT (importing from grid)
+                        gridCaretAnimation.setDirection(CaretAnimationView.Direction.LEFT);
                     } else {
                         imageGrid.setColorFilter(colorGreen, SRC_IN);
                         textLabelGridPower.setText(getResources().getText(R.string.status_grid_export));
+                        // Animate carets flowing RIGHT (exporting to grid)
+                        gridCaretAnimation.setDirection(CaretAnimationView.Direction.RIGHT);
+                    }
+                    if (!gridCaretAnimation.isAnimating()) {
+                        gridCaretAnimation.startAnimation();
                     }
                 } else {
                     Log.w(TAG, "Error fetching data: " + response.message() + ", "+ response.errorBody());

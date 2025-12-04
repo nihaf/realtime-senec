@@ -164,7 +164,7 @@ public class BatteryDetailActivity extends AppCompatActivity {
             textValuePower.setText(FORMAT_WATT.format(Math.abs(batteryPower)));
             
             // Update icon color based on charging/discharging
-            if (batteryPower > 0) {
+            if (batteryPower < 0) {
                 imageBattery.setColorFilter(colorRed); // Discharging
                 textBatteryState.setText(R.string.status_battery_discharge);
             } else {

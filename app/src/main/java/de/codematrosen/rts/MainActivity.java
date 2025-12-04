@@ -53,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
     private TextView textValuePvGenerationEast;
     private TextView textValuePvGenerationWest;
     private TextView textValueStatus;
+    private TextView textUnitPvGeneration;
+    private TextView textUnitBatteryCharge;
+    private TextView textUnitHomeConsumption;
+    private TextView textUnitGridExport;
+    private float divisor;
+
     private int colorRed;
     private int colorGreen;
     private int colorBlue;
@@ -81,6 +87,12 @@ public class MainActivity extends AppCompatActivity {
         textValuePvGenerationWest = findViewById(R.id.text_value_pv_generation_west);
         textValuePvGenerationEast = findViewById(R.id.text_value_pv_generation_east);
         textValueStatus = findViewById(R.id.text_value_status);
+        textUnitPvGeneration = findViewById(R.id.text_unit_pv_generation);
+        textUnitBatteryCharge = findViewById(R.id.text_unit_battery_charge);
+        textUnitHomeConsumption = findViewById(R.id.text_unit_home_consumption);
+        textUnitGridExport = findViewById(R.id.text_unit_grid_export);
+
+        setUnits();
 
         // Check if IP address is configured
         if (!senecPreferences.isIpConfigured()) {
@@ -94,6 +106,12 @@ public class MainActivity extends AppCompatActivity {
 
         senecService = SenecServiceGenerator.createService(senecUrl, SenecService.class);
         initFetchDataTimer();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setUnits();
     }
 
     @Override
@@ -131,6 +149,16 @@ public class MainActivity extends AppCompatActivity {
         cancelExistingTimer();
     }
 
+    private void setUnits() {
+        boolean useKilowatts = senecPreferences.isUsingKilowatts();
+        divisor = useKilowatts ? 1000.0f : 1.0f;
+        int unitStringRes = useKilowatts ? R.string.unit_kilowatt : R.string.unit_watt;
+        textUnitPvGeneration.setText(unitStringRes);
+        textUnitBatteryCharge.setText(unitStringRes);
+        textUnitHomeConsumption.setText(unitStringRes);
+        textUnitGridExport.setText(unitStringRes);
+    }
+
     private void cancelExistingTimer() {
         if (fetchDataTimer != null) {
             fetchDataTimer.cancel();
@@ -156,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
                     textValueStatus.setText(getResources().getStringArray(R.array.system_state_array)[energy.getStatState()]);
                     textValueFuelGauge.setText(FORMAT.format(energy.getGuiBatDataFuelCharge()));
                     Float inverterPowerEast = Math.abs(powerMeter.getTotalPower());
-                    Float inverterPowerWest = Math.abs(energy.getGuiInverterPower() - inverterPowerEast);
+                    float inverterPowerWest = Math.abs(energy.getGuiInverterPower() - inverterPowerEast);
                     Float batteryPower = energy.getGuiBatDataPower();
                     Float batteryCurrent = energy.getGuiBatDataCurrent();
                     Float batteryVoltage = energy.getGuiBatDataVoltage();
@@ -164,12 +192,12 @@ public class MainActivity extends AppCompatActivity {
                     Float gridPower = energy.getGuiGridPow();
 
                     textValueBatteryCurrent.setText(FORMAT.format(batteryCurrent));
-                    textValueBatteryPower.setText(FORMAT.format(Math.abs(batteryPower)));
+                    textValueBatteryPower.setText(FORMAT.format(Math.abs(batteryPower) / divisor));
                     textValueBatteryVoltage.setText(FORMAT.format(batteryVoltage));
-                    textValueGridPower.setText(FORMAT.format(Math.abs(gridPower)));
-                    textValueHomeConsumption.setText(FORMAT.format(housePower));
-                    textValuePvGenerationEast.setText(FORMAT.format(inverterPowerEast));
-                    textValuePvGenerationWest.setText(FORMAT.format(inverterPowerWest));
+                    textValueGridPower.setText(FORMAT.format(Math.abs(gridPower) / divisor));
+                    textValueHomeConsumption.setText(FORMAT.format(housePower / divisor));
+                    textValuePvGenerationEast.setText(FORMAT.format(inverterPowerEast / divisor));
+                    textValuePvGenerationWest.setText(FORMAT.format(inverterPowerWest / divisor));
 
                     if (energy.getGuiBoostingInfo()) {
                         imageBattery.setColorFilter(colorRed, SRC_IN);

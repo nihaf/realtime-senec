@@ -14,6 +14,8 @@
     <string name="error_ip_empty">IP address cannot be empty</string>
     <string name="error_ip_not_configured">Please configure your SENEC device IP address in settings</string>
     <string name="settings_ip_info">The app connects to your SENEC device on your local network. Make sure your device is connected to the same network.</string>
+    <string name="unit_toggle_title">Unit Configuration</string>
+    <string name="unit_toggle_label">Show values in Kilowatt</string>
 
     <string name="content_description_icons">icon</string>
 

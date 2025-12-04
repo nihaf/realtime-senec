@@ -12,6 +12,7 @@ public class SenecPreferences {
 
     private static final String PREFS_NAME = "SenecPreferences";
     private static final String PREF_SENEC_IP = "senec_ip_address";
+    private static final String PREF_USE_KILOWATTS = "use_kilowatts";
 
     private final SharedPreferences preferences;
     private final Context context;
@@ -69,5 +70,23 @@ public class SenecPreferences {
     public boolean isIpConfigured() {
         String ip = getSenecIpAddress();
         return ip != null && !ip.isEmpty() && !ip.equals(getDefaultIpAddress());
+    }
+
+    /**
+     * Check if the user prefers to see energy values in Kilowatts.
+     *
+     * @return true if Kilowatts should be used, false for Watts.
+     */
+    public boolean isUsingKilowatts() {
+        return preferences.getBoolean(PREF_USE_KILOWATTS, false);
+    }
+
+    /**
+     * Set the preference for using Kilowatts.
+     *
+     * @param useKilowatts true to use Kilowatts, false for Watts.
+     */
+    public void setUseKilowatts(boolean useKilowatts) {
+        preferences.edit().putBoolean(PREF_USE_KILOWATTS, useKilowatts).apply();
     }
 }

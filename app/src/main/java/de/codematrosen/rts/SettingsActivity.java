@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.switchmaterial.SwitchMaterial;
+
 import app.juky.squircleview.views.SquircleButton;
 import de.codematrosen.rts.application.SenecPreferences;
 
@@ -14,6 +16,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private SenecPreferences senecPreferences;
     private EditText ipAddressInput;
+    private SwitchMaterial unitToggleSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +32,10 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         ipAddressInput = findViewById(R.id.ip_address_input);
+        unitToggleSwitch = findViewById(R.id.unit_toggle_switch);
         SquircleButton saveButton = findViewById(R.id.save_button);
 
-        // Load current IP address
+        // Load current settings
         loadSettings();
 
         // Set up save button
@@ -41,6 +45,9 @@ public class SettingsActivity extends AppCompatActivity {
     private void loadSettings() {
         String currentIp = senecPreferences.getSenecIpAddress();
         ipAddressInput.setText(currentIp);
+
+        boolean useKilowatts = senecPreferences.isUsingKilowatts();
+        unitToggleSwitch.setChecked(useKilowatts);
     }
 
     private void saveSettings() {
@@ -54,6 +61,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         // Save using SenecPreferences
         senecPreferences.setSenecIpAddress(ipAddress);
+        senecPreferences.setUseKilowatts(unitToggleSwitch.isChecked());
 
         Toast.makeText(this, R.string.settings_saved, Toast.LENGTH_SHORT).show();
         finish(); // Return to MainActivity

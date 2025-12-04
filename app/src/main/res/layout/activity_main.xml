@@ -84,7 +84,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/small_icon_solar_panel"
+                        app:srcCompat="@drawable/icon_solar"
                         app:tint="@color/primary_sage_500" />
 
                 </app.juky.squircleview.views.SquircleConstraintLayout>
@@ -232,7 +232,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/small_icon_battery"
+                        app:srcCompat="@drawable/icon_battery"
                         app:tint="@color/primary_sage_500" />
                 </app.juky.squircleview.views.SquircleConstraintLayout>
 
@@ -298,7 +298,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/small_icon_house"
+                        app:srcCompat="@drawable/icon_home"
                         app:tint="@color/primary_sage_500" />
                 </app.juky.squircleview.views.SquircleConstraintLayout>
 
@@ -337,6 +337,7 @@
                 android:paddingVertical="@dimen/spacing_medium">
 
                 <app.juky.squircleview.views.SquircleConstraintLayout
+                    android:id="@+id/squircle_grid"
                     android:layout_width="@dimen/icon_size"
                     android:layout_height="@dimen/icon_size"
                     android:layout_marginBottom="@dimen/spacing_medium"
@@ -354,7 +355,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/small_icon_reuse_electricity"
+                        app:srcCompat="@drawable/icon_grid"
                         app:tint="@color/primary_sage_500" />
                 </app.juky.squircleview.views.SquircleConstraintLayout>
 

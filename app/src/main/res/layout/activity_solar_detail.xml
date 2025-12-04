@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background_paper"
+    tools:context=".SolarDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_large">
+
+        <!-- Header with Solar Icon -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/spacing_large">
+
+            <app.juky.squircleview.views.SquircleConstraintLayout
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:elevation="@dimen/squircle_elevation"
+                app:squircle_background_color="@color/gray_100"
+                app:squircle_border_color="@color/gray_400"
+                app:squircle_border_width="@dimen/squircle_border_width">
+
+                <ImageView
+                    android:id="@+id/image_solar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/icon_padding"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/icon_solar"
+                    app:tint="@color/primary_sage_500" />
+
+            </app.juky.squircleview.views.SquircleConstraintLayout>
+
+        </LinearLayout>
+
+        <!-- Loading indicator -->
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:visibility="visible"
+            app:indicatorColor="@color/primary_sage_500" />
+
+        <!-- Data Container -->
+        <LinearLayout
+            android:id="@+id/data_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- External Power Meter Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/solar_detail_external_meter"
+                android:textSize="@dimen/text_size_label"
+                android:textStyle="bold"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="@dimen/spacing_small" />
+
+            <app.juky.squircleview.views.SquircleConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_large"
+                android:padding="@dimen/spacing_medium"
+                app:squircle_background_color="@color/surface_card"
+                app:squircle_border_color="@color/gray_200"
+                app:squircle_border_width="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/spacing_medium"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/solar_detail_pm_total"
+                        android:textSize="@dimen/text_size_label"
+                        android:textColor="@color/text_primary" />
+
+                    <TextView
+                        android:id="@+id/text_value_pm_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/empty_text"
+                        android:textSize="@dimen/text_size_value"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary_sage_500" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:text="@string/unit_watt"
+                        android:textColor="@color/text_secondary" />
+
+                </LinearLayout>
+
+            </app.juky.squircleview.views.SquircleConstraintLayout>
+
+            <!-- Internal MPPs Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/solar_detail_internal_meter"
+                android:textSize="@dimen/text_size_label"
+                android:textStyle="bold"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="@dimen/spacing_small" />
+
+            <app.juky.squircleview.views.SquircleConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:padding="@dimen/spacing_medium"
+                app:squircle_background_color="@color/surface_card"
+                app:squircle_border_color="@color/gray_200"
+                app:squircle_border_width="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_medium"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <!-- MPP Power 0 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/spacing_small">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/solar_detail_mpp_power_0"
+                            android:textSize="@dimen/text_size_label"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/text_value_mpp_power_0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_text"
+                            android:textSize="@dimen/text_size_value"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary_sage_500" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_small"
+                            android:text="@string/unit_watt"
+                            android:textColor="@color/text_secondary" />
+
+                    </LinearLayout>
+
+                    <!-- MPP Power 1 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/spacing_small">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/solar_detail_mpp_power_1"
+                            android:textSize="@dimen/text_size_label"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/text_value_mpp_power_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_text"
+                            android:textSize="@dimen/text_size_value"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary_sage_500" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_small"
+                            android:text="@string/unit_watt"
+                            android:textColor="@color/text_secondary" />
+
+                    </LinearLayout>
+
+                    <!-- MPP Power 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/solar_detail_mpp_power_2"
+                            android:textSize="@dimen/text_size_label"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/text_value_mpp_power_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_text"
+                            android:textSize="@dimen/text_size_value"
+                            android:textStyle="bold"
+                            android:textColor="@color/primary_sage_500" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/spacing_small"
+                            android:text="@string/unit_watt"
+                            android:textColor="@color/text_secondary" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </app.juky.squircleview.views.SquircleConstraintLayout>
+
+            <!-- Total Internal MPP Power -->
+            <app.juky.squircleview.views.SquircleConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_large"
+                android:padding="@dimen/spacing_medium"
+                app:squircle_background_color="@color/primary_sage_200"
+                app:squircle_border_color="@color/primary_sage_500"
+                app:squircle_border_width="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/spacing_medium"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/solar_detail_mpp_total"
+                        android:textSize="@dimen/text_size_label"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary_sage_700" />
+
+                    <TextView
+                        android:id="@+id/text_value_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/empty_text"
+                        android:textSize="@dimen/text_size_value"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary_sage_700" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/spacing_small"
+                        android:text="@string/unit_watt"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary_sage_700" />
+
+                </LinearLayout>
+
+            </app.juky.squircleview.views.SquircleConstraintLayout>
+
+        </LinearLayout>
+
+        <!-- Error message -->
+        <TextView
+            android:id="@+id/text_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/solar_detail_error"
+            android:textColor="@color/error"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</ScrollView>

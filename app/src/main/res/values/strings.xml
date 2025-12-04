@@ -302,4 +302,15 @@
     <string name="wallbox_state_3858">Reserved State</string>
     <string name="wallbox_state_3859">Reserved State</string>
 
+    <!-- Solar Detail Activity -->
+    <string name="solar_detail_title">PV Generation Details</string>
+    <string name="solar_detail_external_meter">External Inverter</string>
+    <string name="solar_detail_internal_meter">Internal Inverter</string>
+    <string name="solar_detail_pm_total">PM1OBJ2 Total Power</string>
+    <string name="solar_detail_mpp_power_0">MPP String 1</string>
+    <string name="solar_detail_mpp_power_1">MPP String 2</string>
+    <string name="solar_detail_mpp_power_2">MPP String 3</string>
+    <string name="solar_detail_mpp_total">Current Power Generation</string>
+    <string name="solar_detail_error">Failed to load solar data</string>
+
 </resources>

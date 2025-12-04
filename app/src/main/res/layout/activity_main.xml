@@ -53,6 +53,7 @@
                 android:paddingVertical="@dimen/spacing_medium">
 
                 <app.juky.squircleview.views.SquircleConstraintLayout
+                    android:id="@+id/squircle_pv_generation"
                     android:layout_width="@dimen/icon_size"
                     android:layout_height="@dimen/icon_size"
                     android:layout_marginBottom="@dimen/spacing_medium"

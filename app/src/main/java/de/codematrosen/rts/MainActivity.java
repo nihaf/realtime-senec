@@ -37,8 +37,8 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private static final DecimalFormat FORMAT_WATT = new DecimalFormat("#.#");
-    private static final DecimalFormat FORMAT_KILOWATT = new DecimalFormat("#.##");
+    private static final DecimalFormat FORMAT_WATT = new DecimalFormat("#.0");
+    private static final DecimalFormat FORMAT_KILOWATT = new DecimalFormat("#.00");
 
     private SenecPreferences senecPreferences;
 
@@ -100,6 +100,12 @@ public class MainActivity extends AppCompatActivity {
         textUnitBatteryCharge = findViewById(R.id.text_unit_battery_charge);
         textUnitHomeConsumption = findViewById(R.id.text_unit_home_consumption);
         textUnitGridExport = findViewById(R.id.text_unit_grid_export);
+
+        // Set up click listener for PV generation squircle
+        findViewById(R.id.squircle_pv_generation).setOnClickListener(v -> {
+            Intent intent = new Intent(this, SolarDetailActivity.class);
+            startActivity(intent);
+        });
 
         setUnits();
 

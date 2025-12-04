@@ -36,7 +36,8 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-    private static final DecimalFormat FORMAT = new DecimalFormat("#.#");
+    private static final DecimalFormat FORMAT_WATT = new DecimalFormat("#.#");
+    private static final DecimalFormat FORMAT_KILOWATT = new DecimalFormat("#.##");
 
     private SenecPreferences senecPreferences;
 
@@ -61,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textUnitHomeConsumption;
     private TextView textUnitGridExport;
     private float divisor;
+    private DecimalFormat format;
 
     private int colorRed;
     private int colorGreen;
@@ -156,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
     private void setUnits() {
         boolean useKilowatts = senecPreferences.isUsingKilowatts();
         divisor = useKilowatts ? 1000.0f : 1.0f;
+        format = useKilowatts ? FORMAT_KILOWATT : FORMAT_WATT;
         int unitStringRes = useKilowatts ? R.string.unit_kilowatt : R.string.unit_watt;
         textUnitPvGeneration.setText(unitStringRes);
         textUnitBatteryCharge.setText(unitStringRes);
@@ -197,13 +200,13 @@ public class MainActivity extends AppCompatActivity {
                     Float housePower = energy.getGuiHousePow();
                     Float gridPower = energy.getGuiGridPow();
 
-                    textValueBatteryCurrent.setText(FORMAT.format(batteryCurrent));
-                    textValueBatteryPower.setText(FORMAT.format(Math.abs(batteryPower) / divisor));
-                    textValueBatteryVoltage.setText(FORMAT.format(batteryVoltage));
-                    textValueGridPower.setText(FORMAT.format(Math.abs(gridPower) / divisor));
-                    textValueHomeConsumption.setText(FORMAT.format(housePower / divisor));
-                    textValuePvGenerationEast.setText(FORMAT.format(inverterPowerEast / divisor));
-                    textValuePvGenerationWest.setText(FORMAT.format(inverterPowerWest / divisor));
+                    textValueBatteryCurrent.setText(format.format(batteryCurrent));
+                    textValueBatteryPower.setText(format.format(Math.abs(batteryPower) / divisor));
+                    textValueBatteryVoltage.setText(format.format(batteryVoltage));
+                    textValueGridPower.setText(format.format(Math.abs(gridPower) / divisor));
+                    textValueHomeConsumption.setText(format.format(housePower / divisor));
+                    textValuePvGenerationEast.setText(format.format(inverterPowerEast / divisor));
+                    textValuePvGenerationWest.setText(format.format(inverterPowerWest / divisor));
 
                     if (energy.getGuiBoostingInfo()) {
                         imageBattery.setColorFilter(colorRed, SRC_IN);

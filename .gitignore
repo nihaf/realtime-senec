@@ -52,3 +52,5 @@ Thumbs.db
 .gradle/
 build/
 buildOutputCleanup
+file-system.probe
+/.gradle/

@@ -3,8 +3,11 @@
 
     <string name="app_name">RealtimeSenecApp</string>
 
-    <!-- Settings -->
+    <!-- Menu Actions -->
     <string name="action_settings">Settings</string>
+    <string name="action_battery_detail">Battery Details</string>
+    <string name="action_solar_detail">Solar Details</string>
+    <string name="action_system_info">System Information</string>
     <string name="settings_title">Settings</string>
     <string name="settings_ip_label">SENEC Device IP Address</string>
     <string name="settings_ip_hint">Enter the local IP address of your SENEC device (e.g., 192.168.1.100)</string>
@@ -266,6 +269,7 @@
         <item>Senec Home 6.0 Pb</item>
         <item>Senec Home 10.0 Pb</item>
         <item>Senec Home V2 5.0/7.5/10.0</item>
+        <item>Senec Business V2 30.0 / Pb</item>
         <item>Senec Home V2 10.0 / Pb</item>
         <item>OEM LG</item>
         <item>Senec Business V2_2ph / Lithium</item>
@@ -275,6 +279,8 @@
         <item>SENEC.Home V3 hybrid</item>
         <item>SENEC.Home V3 hybrid duo</item>
         <item>SENEC.Home V3 hybrid</item>
+        <item>SENEC.Home V3 hybrid LFP</item>
+        <item>SENEC.Home V3 hybrid duo LFP</item>
     </string-array>
 
     <string name="wallbox_state_0">Invalid State</string>
@@ -323,5 +329,26 @@
     <string name="battery_detail_current">Current</string>
     <string name="battery_detail_soc">State of Charge</string>
     <string name="battery_detail_error">Failed to load battery data</string>
+
+    <!-- System Information Activity -->
+    <string name="system_info_title">System Information</string>
+    <string name="system_info_control_section">Control Unit</string>
+    <string name="system_info_pv_inverter_section">Internal PV Inverters</string>
+    <string name="system_info_type">Type</string>
+    <string name="system_info_serial">Serial Number</string>
+    <string name="system_info_mac_address">MAC Address</string>
+    <string name="system_info_country_variant">Country Variant</string>
+    <string name="system_info_operating_hours">Operating Hours</string>
+    <string name="system_info_revision_mcu">Revision MCU</string>
+    <string name="system_info_revision_mcu_bl">Revision MCU-BL</string>
+    <string name="system_info_revision_npu_regs">Revision NPU-Regs</string>
+    <string name="system_info_revision_npu_image">Revision NPU-Image</string>
+    <string name="system_info_revision_gui">Revision GUI</string>
+    <string name="system_info_inverter_lv">V3 LV</string>
+    <string name="system_info_inverter_hv">V3 HV</string>
+    <string name="system_info_hmi">HMI</string>
+    <string name="system_info_pu">PU</string>
+    <string name="system_info_bdc">BDC</string>
+    <string name="system_info_error">Failed to load system information</string>
 
 </resources>

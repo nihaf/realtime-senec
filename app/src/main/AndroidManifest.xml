@@ -46,9 +46,19 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-        </activity><activity
+        </activity>
+        <activity
             android:name=".BatteryDetailActivity"
             android:label="@string/battery_detail_title"
+            android:parentActivityName=".MainActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".SystemInformationActivity"
+            android:label="@string/system_info_title"
             android:parentActivityName=".MainActivity"
             android:exported="false">
             <meta-data

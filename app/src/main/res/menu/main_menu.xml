@@ -2,6 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/action_battery_detail"
+        android:icon="@drawable/icon_battery"
+        android:title="@string/action_battery_detail"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_solar_detail"
+        android:icon="@drawable/icon_solar"
+        android:title="@string/action_solar_detail"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_system_info"
+        android:icon="@drawable/baseline_info_32"
+        android:title="@string/action_system_info"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_settings"
         android:icon="@drawable/baseline_settings_32"
         android:title="@string/action_settings"

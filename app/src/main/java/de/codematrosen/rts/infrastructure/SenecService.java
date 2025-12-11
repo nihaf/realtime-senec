@@ -6,6 +6,8 @@ import de.codematrosen.rts.infrastructure.dtos.SenecEnergyRequestDto;
 import de.codematrosen.rts.infrastructure.dtos.SenecEnergyResponseDto;
 import de.codematrosen.rts.infrastructure.dtos.SenecSolarRequestDto;
 import de.codematrosen.rts.infrastructure.dtos.SenecSolarResponseDto;
+import de.codematrosen.rts.infrastructure.dtos.SenecSystemInfoRequestDto;
+import de.codematrosen.rts.infrastructure.dtos.SenecSystemInfoResponseDto;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -22,4 +24,7 @@ public interface SenecService {
 
     @POST("/lala.cgi")
     Call<SenecSolarResponseDto> getSolarData(@Body SenecSolarRequestDto request);
+
+    @POST("/lala.cgi")
+    Call<SenecSystemInfoResponseDto> getSystemInfo(@Body SenecSystemInfoRequestDto request);
 }

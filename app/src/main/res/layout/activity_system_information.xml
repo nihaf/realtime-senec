@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@color/background_paper"
+    tools:context=".SystemInformationActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_large">
+
+        <!-- Header with Info Icon -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/spacing_large">
+
+            <app.juky.squircleview.views.SquircleConstraintLayout
+                android:layout_width="@dimen/icon_size"
+                android:layout_height="@dimen/icon_size"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                android:elevation="@dimen/squircle_elevation"
+                app:squircle_background_color="@color/gray_100"
+                app:squircle_border_color="@color/gray_400"
+                app:squircle_border_width="@dimen/squircle_border_width">
+
+                <ImageView
+                    android:id="@+id/image_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/icon_padding"
+                    android:contentDescription="@string/content_description_icons"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/baseline_info_32"
+                    app:tint="@color/primary_sage_500" />
+
+            </app.juky.squircleview.views.SquircleConstraintLayout>
+
+        </LinearLayout>
+
+        <!-- Loading indicator -->
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true"
+            android:visibility="visible"
+            app:indicatorColor="@color/primary_sage_500" />
+
+        <!-- Data Container -->
+        <LinearLayout
+            android:id="@+id/data_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- Control Unit Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/system_info_control_section"
+                android:textSize="@dimen/text_size_label"
+                android:textStyle="bold"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="@dimen/spacing_small" />
+
+            <app.juky.squircleview.views.SquircleConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_large"
+                android:padding="@dimen/spacing_medium"
+                app:squircle_background_color="@color/surface_card"
+                app:squircle_border_color="@color/gray_200"
+                app:squircle_border_width="@dimen/squircle_border_width">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_medium"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <!-- Type -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/spacing_small">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/system_info_type"
+                            android:textSize="@dimen/text_size_label"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/text_value_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_text"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="@color/primary_sage_500" />
+
+                    </LinearLayout>
+
+                    <!-- Serial Number -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/spacing_small">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/system_info_serial"
+                            android:textSize="@dimen/text_size_label"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/text_value_serial"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_text"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="@color/primary_sage_500" />
+
+                    </LinearLayout>
+
+                    <!-- MAC Address -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/spacing_small">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/system_info_mac_address"
+                            android:textSize="@dimen/text_size_label"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/text_value_mac"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_text"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="@color/primary_sage_500" />
+
+                    </LinearLayout>
+
+                    <!-- Operating Hours -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/spacing_small">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/system_info_operating_hours"
+                            android:textSize="@dimen/text_size_label"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/text_value_operating_hours"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_text"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="@color/primary_sage_500" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </app.juky.squircleview.views.SquircleConstraintLayout>
+
+            <!-- Revisions Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/info_label_PvInvVersions"
+                android:textSize="@dimen/text_size_label"
+                android:textStyle="bold"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="@dimen/spacing_small" />
+
+            <app.juky.squircleview.views.SquircleConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_large"
+                android:padding="@dimen/spacing_medium"
+                app:squircle_background_color="@color/surface_card"
+                app:squircle_border_color="@color/gray_200"
+                app:squircle_border_width="@dimen/squircle_border_width">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_medium"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <!-- Revision MCU -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/spacing_small">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/system_info_revision_mcu"
+                            android:textSize="@dimen/text_size_label"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/text_value_revision_mcu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_text"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="@color/primary_sage_500" />
+
+                    </LinearLayout>
+
+                    <!-- Revision MCU-BL -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/spacing_small">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/system_info_revision_mcu_bl"
+                            android:textSize="@dimen/text_size_label"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/text_value_revision_mcu_bl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_text"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="@color/primary_sage_500" />
+
+                    </LinearLayout>
+
+                    <!-- Revision NPU-Regs -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/spacing_small">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/system_info_revision_npu_regs"
+                            android:textSize="@dimen/text_size_label"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/text_value_revision_npu_regs"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_text"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="@color/primary_sage_500" />
+
+                    </LinearLayout>
+
+                    <!-- Revision NPU-Image -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/spacing_small">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/system_info_revision_npu_image"
+                            android:textSize="@dimen/text_size_label"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/text_value_revision_npu_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_text"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="@color/primary_sage_500" />
+
+                    </LinearLayout>
+
+                    <!-- Revision GUI -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/system_info_revision_gui"
+                            android:textSize="@dimen/text_size_label"
+                            android:textColor="@color/text_primary" />
+
+                        <TextView
+                            android:id="@+id/text_value_revision_gui"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_text"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="@color/primary_sage_500" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </app.juky.squircleview.views.SquircleConstraintLayout>
+
+            <!-- Internal PV Inverters Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/system_info_pv_inverter_section"
+                android:textSize="@dimen/text_size_label"
+                android:textStyle="bold"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="@dimen/spacing_small" />
+
+            <app.juky.squircleview.views.SquircleConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_large"
+                android:padding="@dimen/spacing_medium"
+                app:squircle_background_color="@color/surface_card"
+                app:squircle_border_color="@color/gray_200"
+                app:squircle_border_width="@dimen/squircle_border_width">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_medium"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <!-- V3 LV Inverter -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="@dimen/spacing_medium">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/system_info_inverter_lv"
+                            android:textSize="@dimen/text_size_label"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"
+                            android:layout_marginBottom="@dimen/spacing_small" />
+
+                        <TextView
+                            android:id="@+id/text_value_inverter_lv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_text"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="@color/primary_sage_500" />
+
+                    </LinearLayout>
+
+                    <!-- V3 HV Inverter -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/system_info_inverter_hv"
+                            android:textSize="@dimen/text_size_label"
+                            android:textStyle="bold"
+                            android:textColor="@color/text_primary"
+                            android:layout_marginBottom="@dimen/spacing_small" />
+
+                        <TextView
+                            android:id="@+id/text_value_inverter_hv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/empty_text"
+                            android:textSize="@dimen/text_size_small"
+                            android:textColor="@color/primary_sage_500" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </app.juky.squircleview.views.SquircleConstraintLayout>
+
+        </LinearLayout>
+
+        <!-- Error message -->
+        <TextView
+            android:id="@+id/text_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/system_info_error"
+            android:textColor="@color/error"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</ScrollView>

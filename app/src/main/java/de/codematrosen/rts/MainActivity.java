@@ -133,9 +133,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_settings) {
-            Intent intent = new Intent(this, SettingsActivity.class);
-            startActivity(intent);
+        int itemId = item.getItemId();
+        if (itemId == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        } else if (itemId == R.id.action_battery_detail) {
+            startActivity(new Intent(this, BatteryDetailActivity.class));
+            return true;
+        } else if (itemId == R.id.action_solar_detail) {
+            startActivity(new Intent(this, SolarDetailActivity.class));
+            return true;
+        } else if (itemId == R.id.action_system_info) {
+            startActivity(new Intent(this, SystemInformationActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

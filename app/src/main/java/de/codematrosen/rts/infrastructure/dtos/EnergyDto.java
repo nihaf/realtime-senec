@@ -152,4 +152,12 @@ public class EnergyDto {
     public void setStatState(String statState) {
         this.statState = statState;
     }
+
+    public String getStatHoursOfOperation() {
+        return statHoursOfOperation;
+    }
+
+    public void setStatHoursOfOperation(String statHoursOfOperation) {
+        this.statHoursOfOperation = statHoursOfOperation;
+    }
 }

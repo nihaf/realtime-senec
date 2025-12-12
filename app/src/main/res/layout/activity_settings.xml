@@ -58,7 +58,7 @@
     <EditText
         android:id="@+id/ip_address_input"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="@dimen/input_min_height"
         android:layout_marginTop="@dimen/spacing_large"
         android:autofillHints="ipAddress"
         android:hint="@string/settings_ip_placeholder"
@@ -70,7 +70,7 @@
 
     <app.juky.squircleview.views.SquircleButton
         android:id="@+id/save_button"
-        android:layout_width="128dp"
+        android:layout_width="@dimen/icon_size"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_large"
         android:padding="@dimen/button_padding"

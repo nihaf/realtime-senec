@@ -82,7 +82,7 @@
                 android:padding="@dimen/spacing_medium"
                 app:squircle_background_color="@color/surface_card"
                 app:squircle_border_color="@color/gray_200"
-                app:squircle_border_width="1dp">
+                app:squircle_border_width="@dimen/squircle_border_width_thin">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -177,7 +177,7 @@
                 android:padding="@dimen/spacing_medium"
                 app:squircle_background_color="@color/surface_card"
                 app:squircle_border_color="@color/gray_200"
-                app:squircle_border_width="1dp">
+                app:squircle_border_width="@dimen/squircle_border_width_thin">
 
                 <LinearLayout
                     android:layout_width="match_parent"

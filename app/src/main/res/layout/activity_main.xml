@@ -180,7 +180,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:trackColor="@color/gray_300"
-                        app:trackThickness="0.8dp" />
+                        app:trackThickness="@dimen/battery_progress_line" />
 
                     <LinearLayout
                         android:id="@+id/layout_battery_soc"
@@ -204,7 +204,7 @@
                             android:id="@+id/text_unit_battery_soc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="1dp"
+                            android:layout_marginStart="@dimen/margin_battery_unit"
                             android:text="@string/unit_percent"
                             android:textColor="@color/primary_sage_500"
                             android:textSize="@dimen/text_size_small" />
